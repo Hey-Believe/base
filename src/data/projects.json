@@ -1,0 +1,12 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "Project One",
+      "description": "Building decentralized intelligent systems with a focus on privacy and scalability",
+      "logo": "/project-logo.svg",
+      "license": "MIT",
+      "repoUrl": "https://github.com/believe/project-one"
+    }
+  ]
+}

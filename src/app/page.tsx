@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
+import { ProjectsSidebar } from '@/components/projects-sidebar'
+import { getContributors } from '@/lib/data'
 
 // Animation duration variable (in seconds)
 const ANIMATION_DURATION = 3
@@ -134,25 +136,25 @@ ${inkDropKeyframes}
 ${electricKeyframes}
 `
 
-// Add this before your component
-const contributors = [
-  {
-    name: 'thanks_giver',
-    image: '/thanksgiver.jpg', // Replace with actual image path
-  }
-  // Add more contributors as needed
-]
-
 export default function LandingPage() {
   const [mounted, setMounted] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  if (!mounted) {
-    return null
+  const handleProjectsClick = () => {
+    setSidebarOpen(true)
   }
+
+  const handleSidebarClose = () => {
+    setSidebarOpen(false)
+  }
+
+  const contributors = getContributors()
+
+  if (!mounted) return null
 
   return (
     <>
@@ -199,11 +201,17 @@ export default function LandingPage() {
           </p>
 
           <Button
-            variant="outline"
+            variant={sidebarOpen ? 'default' : 'outline'}
             size="lg"
-            className="text-black border border-black hover:bg-black hover:text-white transition-colors w-full sm:w-auto text-lg sm:text-xl py-4 px-6 rounded-none font-mono hover:scale-[1.02] transform transition-transform"
+            onClick={handleProjectsClick}
+            className={`border ${
+              sidebarOpen ? 'bg-black text-white' : 'border-black text-black'
+            } transition-colors w-full sm:w-auto text-lg sm:text-xl py-4 px-6 
+            rounded-none font-mono hover:scale-[1.02] transform transition-transform`}
           >
-            See Open Source Projects
+            {sidebarOpen
+              ? 'Thanks for checking our projects!'
+              : 'See Open Source Projects'}
           </Button>
 
           <section className="w-full max-w-2xl mx-auto mt-16">
@@ -258,6 +266,8 @@ export default function LandingPage() {
             </div>
           </div>
         </footer>
+
+        <ProjectsSidebar isOpen={sidebarOpen} onClose={handleSidebarClose} />
       </div>
     </>
   )
