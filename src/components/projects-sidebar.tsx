@@ -43,7 +43,7 @@ export function ProjectsSidebar({ isOpen, onClose }: ProjectsSidebarProps) {
   }, [onClose])
 
   return (
-    <>
+    <div suppressHydrationWarning>
       {/* Overlay */}
       {isOpen && (
         <div
@@ -111,6 +111,6 @@ export function ProjectsSidebar({ isOpen, onClose }: ProjectsSidebarProps) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

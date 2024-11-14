@@ -159,7 +159,7 @@ export default function LandingPage() {
   if (!mounted) return null
 
   return (
-    <>
+    <div suppressHydrationWarning>
       <style jsx global>
         {combinedKeyframes}
       </style>
@@ -243,6 +243,6 @@ export default function LandingPage() {
 
         <ProjectsSidebar isOpen={sidebarOpen} onClose={handleSidebarClose} />
       </div>
-    </>
+    </div>
   )
 }

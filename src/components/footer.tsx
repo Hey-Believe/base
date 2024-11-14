@@ -1,11 +1,19 @@
 'use client'
 
+import { useState, useEffect } from 'react'
+
 export function Footer() {
+  const [year, setYear] = useState('')
+
+  useEffect(() => {
+    setYear(new Date().getFullYear().toString())
+  }, [])
+
   return (
     <footer className="w-full border-t border-gray-200 py-6 px-4">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
-        <div className="text-sm font-mono">
-          © {new Date().getFullYear()} Believe
+        <div className="text-sm font-mono" suppressHydrationWarning>
+          © {year} Believe
         </div>
         <div className="flex items-center gap-4">
           <a href="#" className="text-sm hover:underline font-mono">
