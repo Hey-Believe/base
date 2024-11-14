@@ -7,6 +7,22 @@
       "logo": "/project-logo.svg",
       "license": "MIT",
       "repoUrl": "https://github.com/believe/project-one"
+    },
+    {
+      "id": "2",
+      "title": "Project Two",
+      "description": "Building decentralized intelligent systems with a focus on privacy and scalability",
+      "logo": "/project-logo.svg",
+      "license": "MIT",
+      "repoUrl": "https://github.com/believe/project-one"
+    },
+    {
+      "id": "3",
+      "title": "Project Three",
+      "description": "Building decentralized intelligent systems with a focus on privacy and scalability",
+      "logo": "/project-logo.svg",
+      "license": "MIT",
+      "repoUrl": "https://github.com/believe/project-one"
     }
   ]
 }
