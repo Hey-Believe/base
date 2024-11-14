@@ -2,27 +2,11 @@
   "projects": [
     {
       "id": "1",
-      "title": "Project One",
-      "description": "Building decentralized intelligent systems with a focus on privacy and scalability",
-      "logo": "/project-logo.svg",
+      "title": "Dop Stick",
+      "description": "Source control tooling for versionable, upgradeable Diamonds (EIP-2535)",
+      "logo": "/dopstick-logo.svg",
       "license": "MIT",
-      "repoUrl": "https://github.com/believe/project-one"
-    },
-    {
-      "id": "2",
-      "title": "Project Two",
-      "description": "Building decentralized intelligent systems with a focus on privacy and scalability",
-      "logo": "/project-logo.svg",
-      "license": "MIT",
-      "repoUrl": "https://github.com/believe/project-one"
-    },
-    {
-      "id": "3",
-      "title": "Project Three",
-      "description": "Building decentralized intelligent systems with a focus on privacy and scalability",
-      "logo": "/project-logo.svg",
-      "license": "MIT",
-      "repoUrl": "https://github.com/believe/project-one"
+      "repoUrl": "https://github.com/Hey-Believe/dop-stick"
     }
   ]
 }
