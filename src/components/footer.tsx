@@ -13,7 +13,7 @@ export function Footer() {
     <footer className="w-full border-t border-gray-200 py-6 px-4">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         <div className="text-sm font-mono" suppressHydrationWarning>
-          © {year} Believe
+          © {year} Hey Believe!
         </div>
         <div className="flex items-center gap-4">
           <a href="#" className="text-sm hover:underline font-mono">
