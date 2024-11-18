@@ -117,8 +117,8 @@ export function FacetDetails({ facet }: FacetDetailsProps) {
 
   return (
     <Card className="h-full flex flex-col bg-white dark:bg-zinc-900">
-      {/* Header */}
-      <div className="px-6 py-4 border-b border-zinc-200 dark:border-zinc-800">
+      {/* Header - Fixed */}
+      <div className="flex-none px-6 py-4 border-b border-zinc-200 dark:border-zinc-800">
         <div className="flex items-start justify-between">
           <div>
             <h2 className="text-xl font-semibold text-zinc-800 dark:text-zinc-200 mb-1">
@@ -154,9 +154,9 @@ export function FacetDetails({ facet }: FacetDetailsProps) {
         </div>
       </div>
 
-      {/* Content */}
-      <Tabs defaultValue="selectors" className="flex-grow">
-        <div className="px-6 border-b border-zinc-200 dark:border-zinc-800">
+      {/* Tabs - Fixed */}
+      <Tabs defaultValue="selectors" className="flex-1 flex flex-col min-h-0">
+        <div className="flex-none px-6 border-b border-zinc-200 dark:border-zinc-800">
           <TabsList className="h-12 p-0 bg-transparent space-x-6">
             <TabsTrigger
               value="selectors"
@@ -173,7 +173,8 @@ export function FacetDetails({ facet }: FacetDetailsProps) {
           </TabsList>
         </div>
 
-        <TabsContent value="selectors" className="flex-grow p-6">
+        {/* Scrollable Content */}
+        <TabsContent value="selectors" className="flex-1 p-6 overflow-y-auto">
           <div className="space-y-6">
             {/* Found Selectors */}
             {facet.selectors.found.length > 0 && (
@@ -254,7 +255,7 @@ export function FacetDetails({ facet }: FacetDetailsProps) {
           </div>
         </TabsContent>
 
-        <TabsContent value="events" className="flex-grow p-6">
+        <TabsContent value="events" className="flex-1 p-6 overflow-y-auto">
           <div className="space-y-3">
             {facet.events.length > 0 ? (
               facet.events.map((event, index) => (

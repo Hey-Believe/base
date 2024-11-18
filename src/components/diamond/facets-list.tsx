@@ -64,7 +64,7 @@ export function FacetsList({
 
   return (
     <Card className="h-full flex flex-col bg-white dark:bg-zinc-900">
-      <div className="px-4 pt-4 pb-3 border-b border-zinc-200 dark:border-zinc-800">
+      <div className="flex-none p-4 border-b border-zinc-200 dark:border-zinc-800">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400" />
           <Input
@@ -84,7 +84,7 @@ export function FacetsList({
         </div>
       </div>
 
-      <div className="overflow-y-auto flex-grow">
+      <div className="flex-1 overflow-y-auto">
         <div className="divide-y divide-zinc-100 dark:divide-zinc-800">
           {facetsList.map((facet, index) => (
             <motion.div

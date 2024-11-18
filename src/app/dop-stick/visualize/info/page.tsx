@@ -135,12 +135,12 @@ export default function DiamondInfoPage() {
   }))
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
-      {/* Header Section */}
+    <div className="h-screen flex flex-col bg-gradient-to-b from-background to-muted/20">
+      {/* Fixed Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="p-6 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+        className="flex-none p-6 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
       >
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between">
@@ -177,18 +177,18 @@ export default function DiamondInfoPage() {
       </motion.div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto p-6">
+      <div className="flex-1 max-w-7xl mx-auto p-6 overflow-hidden">
         {error ? (
           <Card className="p-4 text-red-500 bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-800">
             {error}
           </Card>
         ) : diamondData ? (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            {/* Stats Cards */}
+          <div className="h-full flex flex-col">
+            {/* Stats Cards - Fixed */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="col-span-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+              className="flex-none grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6"
             >
               <StatCard
                 icon={<Diamond className="h-5 w-5" />}
@@ -215,35 +215,34 @@ export default function DiamondInfoPage() {
               />
             </motion.div>
 
-            {/* Facets List */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="lg:col-span-4 xl:col-span-3"
-            >
-              <FacetsList
-                facets={diamondData.facets}
-                selectedFacet={selectedFacet}
-                onSelectFacet={setSelectedFacet}
-              />
-            </motion.div>
+            {/* Scrollable Content Area */}
+            <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-0">
+              {/* Facets List */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="lg:col-span-4 xl:col-span-3 overflow-hidden"
+              >
+                <FacetsList
+                  facets={diamondData.facets}
+                  selectedFacet={selectedFacet}
+                  onSelectFacet={setSelectedFacet}
+                />
+              </motion.div>
 
-            {/* Facet Details */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="lg:col-span-8 xl:col-span-9"
-            >
-              {selectedFacet && diamondData ? (
-                <FacetDetails facet={diamondData.facets[selectedFacet]} />
-              ) : (
-                <Card className="p-8 text-center text-muted-foreground">
-                  <Diamond className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                  <h3 className="text-lg font-medium mb-2">Select a Facet</h3>
-                  <p>Choose a facet from the list to view its details</p>
-                </Card>
-              )}
-            </motion.div>
+              {/* Facet Details */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="lg:col-span-8 xl:col-span-9 overflow-hidden"
+              >
+                {selectedFacet && diamondData ? (
+                  <FacetDetails facet={diamondData.facets[selectedFacet]} />
+                ) : (
+                  <FacetDetails facet={null} />
+                )}
+              </motion.div>
+            </div>
           </div>
         ) : (
           <div className="flex items-center justify-center min-h-[60vh]">
