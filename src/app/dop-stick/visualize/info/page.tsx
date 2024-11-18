@@ -1,7 +1,16 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Copy, CheckCircle2, Diamond, Code2, Activity } from 'lucide-react'
+import {
+  Copy,
+  CheckCircle2,
+  Diamond,
+  Code2,
+  Activity,
+  Sparkles,
+  AlertCircle,
+  GitFork,
+} from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -13,6 +22,7 @@ import {
   UnknownSelector,
 } from '@/components/diamond/facet-details'
 import { useRouter } from 'next/navigation'
+import { Badge } from '@/components/ui/badge'
 
 interface DiamondInfo {
   infoHash: string
@@ -135,12 +145,12 @@ export default function DiamondInfoPage() {
   }))
 
   return (
-    <div className="h-screen flex flex-col bg-gradient-to-b from-background to-muted/20">
+    <div className="h-screen flex flex-col bg-gradient-to-b from-zinc-50/50 to-white dark:from-black dark:to-zinc-900/50">
       {/* Fixed Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="flex-none p-6 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+        className="flex-none p-6 border-b border-zinc-200/50 dark:border-zinc-800/50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl"
       >
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between">
@@ -185,35 +195,130 @@ export default function DiamondInfoPage() {
         ) : diamondData ? (
           <div className="h-full flex flex-col">
             {/* Stats Cards - Fixed */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="flex-none grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6"
-            >
-              <StatCard
-                icon={<Diamond className="h-5 w-5" />}
-                label="Total Facets"
-                value={diamondData.statistics.totalFacets}
-              />
-              <StatCard
-                icon={<Code2 className="h-5 w-5" />}
-                label="Total Selectors"
-                value={diamondData.statistics.totalSelectors}
-              />
-              <StatCard
-                icon={<Activity className="h-5 w-5" />}
-                label="Known Selectors"
-                value={
-                  diamondData.statistics.totalSelectors -
-                  diamondData.statistics.totalUnknownSelectors
-                }
-              />
-              <StatCard
-                icon={<Code2 className="h-5 w-5" />}
-                label="Unknown Selectors"
-                value={diamondData.statistics.totalUnknownSelectors}
-              />
-            </motion.div>
+            <div className="flex-none mb-4">
+              <Card className="bg-[#fafafa] dark:bg-[#111111] border-[#eaeaea] dark:border-[#333333]">
+                <div className="grid grid-cols-[1fr,auto] gap-6 p-5">
+                  {/* Left side - Contract Info */}
+                  <div className="px-4 py-3 rounded-lg bg-white dark:bg-black border border-dashed border-[#eaeaea] dark:border-[#333333]">
+                    <div className="flex items-center gap-4">
+                      {/* Icon Container */}
+                      <div className="shrink-0 p-2 rounded-md bg-[#fafafa] dark:bg-[#111111] border border-dashed border-[#eaeaea] dark:border-[#333333]">
+                        <Diamond className="h-4.5 w-4.5 text-black dark:text-white" />
+                      </div>
+
+                      {/* Contract Info */}
+                      <div className="min-w-0 flex-1">
+                        {/* Title and Badge */}
+                        <div className="flex items-center justify-between mb-1">
+                          <h3 className="text-xs font-medium text-black dark:text-white">
+                            Diamond Contract
+                          </h3>
+                          <Badge
+                            variant="outline"
+                            className="h-[18px] px-1.5 text-[10px] font-medium border-dashed border-[#eaeaea] dark:border-[#333333] text-[#666666] dark:text-[#888888]"
+                          >
+                            {diamondData.metadata.network}
+                          </Badge>
+                        </div>
+
+                        {/* Address Container */}
+                        <div className="flex items-center gap-2 group">
+                          <code className="text-[11px] font-mono text-[#666666] dark:text-[#888888] truncate">
+                            {diamondData.metadata.diamondAddress}
+                          </code>
+                          <button
+                            onClick={() =>
+                              copyToClipboard(
+                                diamondData.metadata.diamondAddress,
+                              )
+                            }
+                            className="text-[#666666] hover:text-black dark:text-[#888888] dark:hover:text-white transition-colors opacity-0 group-hover:opacity-100"
+                          >
+                            <Copy className="h-3 w-3" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right side - Stats */}
+                  <div className="flex items-center gap-8 border-l border-dashed border-[#eaeaea] dark:border-[#333333] pl-8">
+                    <div className="grid grid-cols-4 gap-6">
+                      {/* Facets */}
+                      <div className="flex flex-col justify-between px-4 py-3 h-[80px] rounded-lg bg-white dark:bg-black border border-dashed border-[#eaeaea] dark:border-[#333333]">
+                        <p className="text-[10px] font-medium uppercase tracking-wider text-[#666666] dark:text-[#888888]">
+                          Facets
+                        </p>
+                        <p className="text-xl font-semibold text-black dark:text-white tabular-nums">
+                          {diamondData.statistics.totalFacets}
+                        </p>
+                      </div>
+
+                      {/* Total Functions */}
+                      <div className="flex flex-col justify-between px-4 py-3 h-[80px] rounded-lg bg-white dark:bg-black border border-dashed border-[#eaeaea] dark:border-[#333333]">
+                        <p className="text-[10px] font-medium uppercase tracking-wider text-[#666666] dark:text-[#888888]">
+                          Functions
+                        </p>
+                        <p className="text-xl font-semibold text-black dark:text-white tabular-nums">
+                          {diamondData.statistics.totalSelectors}
+                        </p>
+                      </div>
+
+                      {/* Known Functions */}
+                      <div className="flex flex-col justify-between px-4 py-3 h-[80px] rounded-lg bg-white dark:bg-black border border-dashed border-[#eaeaea] dark:border-[#333333]">
+                        <div className="flex items-center gap-2">
+                          <p className="text-[10px] font-medium uppercase tracking-wider text-[#666666] dark:text-[#888888]">
+                            Known
+                          </p>
+                          <Badge className="bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-dashed border-emerald-200 dark:border-emerald-500/20 text-[10px] h-4 ml-auto">
+                            {Math.round(
+                              ((diamondData.statistics.totalSelectors -
+                                diamondData.statistics.totalUnknownSelectors) /
+                                diamondData.statistics.totalSelectors) *
+                                100,
+                            )}
+                            %
+                          </Badge>
+                        </div>
+                        <p className="text-xl font-semibold text-black dark:text-white tabular-nums">
+                          {diamondData.statistics.totalSelectors -
+                            diamondData.statistics.totalUnknownSelectors}
+                        </p>
+                      </div>
+
+                      {/* Unknown Functions */}
+                      <div className="flex flex-col justify-between px-4 py-3 h-[80px] rounded-lg bg-white dark:bg-black border border-dashed border-[#eaeaea] dark:border-[#333333]">
+                        <div className="flex items-center gap-2">
+                          <p className="text-[10px] font-medium uppercase tracking-wider text-[#666666] dark:text-[#888888]">
+                            Unknown
+                          </p>
+                          <Badge className="bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 border-dashed border-amber-200 dark:border-amber-500/20 text-[10px] h-4 ml-auto">
+                            {Math.round(
+                              (diamondData.statistics.totalUnknownSelectors /
+                                diamondData.statistics.totalSelectors) *
+                                100,
+                            )}
+                            %
+                          </Badge>
+                        </div>
+                        <p className="text-xl font-semibold text-black dark:text-white tabular-nums">
+                          {diamondData.statistics.totalUnknownSelectors}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Analysis Button */}
+                    <Button
+                      size="sm"
+                      className="ml-6 gap-2 bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90 transition-all duration-200"
+                    >
+                      <Activity className="h-4 w-4" />
+                      Analysis
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+            </div>
 
             {/* Scrollable Content Area */}
             <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-0">
@@ -258,20 +363,74 @@ function StatCard({
   icon,
   label,
   value,
+  description,
+  trend,
 }: {
   icon: React.ReactNode
   label: string
   value: number
+  description?: string
+  trend?: {
+    value: number
+    isPositive: boolean
+  }
 }) {
   return (
-    <Card className="p-4">
-      <div className="flex items-center gap-3">
-        <div className="p-2 bg-primary/10 rounded-lg text-primary">{icon}</div>
-        <div>
-          <p className="text-sm text-muted-foreground">{label}</p>
-          <p className="text-2xl font-semibold">{value}</p>
+    <Card className="relative overflow-hidden">
+      <div className="p-6">
+        <div className="flex items-center justify-between mb-4">
+          <div className="p-2.5 rounded-xl bg-primary/10 text-primary">
+            {icon}
+          </div>
+          {trend && (
+            <Badge
+              variant={trend.isPositive ? 'success' : 'destructive'}
+              className="font-medium"
+            >
+              {trend.isPositive ? '+' : '-'}
+              {trend.value}%
+            </Badge>
+          )}
+        </div>
+
+        <div className="space-y-1">
+          <h3 className="text-sm font-medium text-muted-foreground">{label}</h3>
+          <div className="flex items-baseline gap-2">
+            <p className="text-2xl font-semibold tracking-tight">
+              {value.toLocaleString()}
+            </p>
+            {description && (
+              <span className="text-sm text-muted-foreground">
+                {description}
+              </span>
+            )}
+          </div>
         </div>
       </div>
     </Card>
+  )
+}
+
+function StatItem({
+  label,
+  value,
+  description,
+}: {
+  label: string
+  value: number | string
+  description?: string
+}) {
+  return (
+    <div className="flex flex-col">
+      <p className="text-sm text-muted-foreground">{label}</p>
+      <div className="flex items-baseline gap-2">
+        <span className="text-2xl font-semibold">
+          {typeof value === 'number' ? value.toLocaleString() : value}
+        </span>
+        {description && (
+          <span className="text-xs text-muted-foreground">{description}</span>
+        )}
+      </div>
+    </div>
   )
 }
