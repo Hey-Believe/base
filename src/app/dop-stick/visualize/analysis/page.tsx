@@ -16,6 +16,7 @@ import {
   Download,
   Share2,
   AlertTriangle,
+  BookOpen,
 } from 'lucide-react'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -52,6 +53,7 @@ import {
 } from './utils'
 import CustomizedContent from './components/CustomizedContent'
 import { Section } from './components/Section'
+import Link from 'next/link'
 
 interface DiamondAnalytics {
   securityMetrics: {
@@ -400,6 +402,13 @@ export default function AnalysisPage() {
 
   return (
     <div className="min-h-screen bg-[#fafafa] dark:bg-[#111111]">
+      <header className="px-6 h-16 flex items-center bg-white dark:bg-black border-b border-[#eaeaea] dark:border-[#333333]">
+        <Link href="/" className="flex items-center gap-2.5">
+          <Package className="w-6 h-6" />
+          <span className="text-xl font-medium tracking-tight">dop-stick</span>
+        </Link>
+      </header>
+
       {/* Hero Section */}
       <div className="relative overflow-hidden border-b border-[#eaeaea] dark:border-[#333333] bg-white dark:bg-black">
         <div className="max-w-7xl mx-auto px-6 py-16">

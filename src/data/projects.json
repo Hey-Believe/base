@@ -2,9 +2,9 @@
   "projects": [
     {
       "id": "1",
-      "title": "Dop Stick",
+      "title": "dop-stick",
       "description": "Source control tooling for versionable, upgradeable Diamonds (EIP-2535)",
-      "logo": "/dopstick-logo.svg",
+      "logo": "/dop-stick-image.svg",
       "license": "MIT",
       "repoUrl": "https://github.com/Hey-Believe/dop-stick"
     }
