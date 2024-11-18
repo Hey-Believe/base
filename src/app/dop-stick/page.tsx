@@ -8,6 +8,7 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Footer } from '@/components/footer'
+import '@/styles/blinking-cat.css'
 
 const networks = [
   {
@@ -71,13 +72,21 @@ export default function Component() {
           <span className="text-xl font-medium tracking-tight">dop-stick</span>
         </Link>
 
-        <div className="ml-auto flex items-center">
+        <div className="ml-auto flex items-center gap-6">
           <Link
             href="/docs"
             className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
           >
             <BookOpen className="w-4 h-4" />
             <span>see docs</span>
+          </Link>
+
+          <Link
+            href="/dop-stick/visualize"
+            className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
+          >
+            <span>Visualize</span>
+            <span className="blinking-cat"></span>
           </Link>
         </div>
       </header>
@@ -91,7 +100,7 @@ export default function Component() {
               <input
                 type="text"
                 className="w-full h-12 px-4 bg-transparent outline-none text-base text-gray-900 placeholder:text-gray-400"
-                placeholder="Diamond address · 0x1234...abcd"
+                placeholder="search a diamond address..."
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
               />
@@ -102,14 +111,17 @@ export default function Component() {
                       variant="ghost"
                       size="sm"
                       className="h-8 px-3 gap-2 text-muted-foreground hover:text-foreground 
-                               transition-colors hover:bg-transparent"
+                               transition-colors hover:bg-transparent focus:outline-none focus:ring-0"
                     >
                       <div className="w-5 h-5 flex items-center justify-center">
                         {selectedNetwork.isIcon ? (
                           selectedNetwork.icon
                         ) : (
                           <Image
-                            src={selectedNetwork.image}
+                            src={
+                              selectedNetwork.image ||
+                              '/path/to/default-image.svg'
+                            }
                             alt={selectedNetwork.name}
                             width={20}
                             height={20}
@@ -125,7 +137,7 @@ export default function Component() {
                   </DropdownMenu.Trigger>
                   <DropdownMenu.Portal>
                     <DropdownMenu.Content
-                      className="w-64 bg-white rounded-lg shadow-lg border animate-in fade-in-0 zoom-in-95"
+                      className="w-64 bg-white rounded-lg shadow-lg border animate-in fade-in-0 zoom-in-95 focus:outline-none"
                       align="start"
                       sideOffset={5}
                     >
@@ -143,7 +155,10 @@ export default function Component() {
                                 network.icon
                               ) : (
                                 <Image
-                                  src={network.image}
+                                  src={
+                                    network.image ||
+                                    '/path/to/default-image.svg'
+                                  }
                                   alt={network.name}
                                   width={24}
                                   height={24}

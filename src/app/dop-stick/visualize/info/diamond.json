@@ -1,0 +1,2022 @@
+{
+  "infoHash": "MTczMTg3",
+  "metadata": {
+    "version": "unknown",
+    "timestamp": "2024-11-17T21:40:35.351Z",
+    "network": "testnet",
+    "diamondAddress": "0x535d3BC47ef036336e05f2B33ECA4222F13a344a"
+  },
+  "statistics": {
+    "totalFacets": 35,
+    "totalSelectors": 151,
+    "totalUnknownSelectors": 6,
+    "uniqueAddresses": 35
+  },
+  "blockchainData": {
+    "totalFacets": 35,
+    "totalSelectors": 151,
+    "facetsBreakdown": [
+      {
+        "address": "0x2be41613599A502add1845f5e807fF9Ba0542153",
+        "selectors": ["0x5298e42c"],
+        "selectorCount": 1
+      },
+      {
+        "address": "0x22C18672c657e0Cd1DDe44a6C6B0FE153DfA3Bc4",
+        "selectors": [
+          "0xb7c89c45",
+          "0xb1f61147",
+          "0xf7e80e98",
+          "0x1814ecaf",
+          "0x01ffc9a7"
+        ],
+        "selectorCount": 5
+      },
+      {
+        "address": "0xF2646c2bc19084b593B6BB995b3Fa62633E5f9F9",
+        "selectors": ["0x8da5cb5b", "0xf2fde38b"],
+        "selectorCount": 2
+      },
+      {
+        "address": "0xA1d788945fd4B080Ab16dC1AD12a50af087D0f8E",
+        "selectors": ["0x98dc2d84"],
+        "selectorCount": 1
+      },
+      {
+        "address": "0x76cfC5337B065EF9b06EfA9a52d755C9E98cB837",
+        "selectors": [
+          "0xbb529edf",
+          "0xda437ea8",
+          "0xc171eb9e",
+          "0xb9ff95c2",
+          "0x6a0c4893",
+          "0x19a60f39",
+          "0xe59d75a3",
+          "0x99a9b121"
+        ],
+        "selectorCount": 8
+      },
+      {
+        "address": "0xf43EeB39969CAdE599747D8ed432dB6D01bBE15F",
+        "selectors": ["0x66f27d76", "0x7e04f329", "0x75f22177", "0xcb7bc3be"],
+        "selectorCount": 4
+      },
+      {
+        "address": "0x35946fb07E0194E555b9A91Bb5154f9F9d28Ec8F",
+        "selectors": [
+          "0x6b492dfa",
+          "0x62c29aae",
+          "0x92e09d81",
+          "0x765ac197",
+          "0x522842d1",
+          "0xb843bd9f",
+          "0x185d5fd8"
+        ],
+        "selectorCount": 7
+      },
+      {
+        "address": "0xCb101ce2c90063827a2B5997F275D3d80eE090d7",
+        "selectors": ["0x339fb996", "0xf94fff1a", "0x6d81d3a1", "0x12e63d71"],
+        "selectorCount": 4
+      },
+      {
+        "address": "0xF0F5E67EbDB2AD1f58450c068B9De57f35589D12",
+        "selectors": ["0xde6b1356"],
+        "selectorCount": 1
+      },
+      {
+        "address": "0x7B1D9997b35FFC3AF4464A548e72779c0a251249",
+        "selectors": [
+          "0xee64cd5c",
+          "0x9a750f9b",
+          "0xa68a2e4e",
+          "0xbf7871f5",
+          "0x3f256195",
+          "0x40d63008",
+          "0x1ea48ffa",
+          "0xbcc95f07",
+          "0x39bce665",
+          "0x67aa8242",
+          "0x62c4275c",
+          "0x1e2bb582",
+          "0xb31993e3",
+          "0xa73f36f3",
+          "0x9f4f131d",
+          "0x885ba59e",
+          "0x425cf241",
+          "0xa1891dde",
+          "0x01324018",
+          "0x2ce75863",
+          "0xf77b9d0d",
+          "0x0bccb3af",
+          "0xe9683a99"
+        ],
+        "selectorCount": 23
+      },
+      {
+        "address": "0xcEd761Feefb1F3d2d266d63363B53e08F3073e6A",
+        "selectors": ["0xe12d250f", "0xa4d59e7d"],
+        "selectorCount": 2
+      },
+      {
+        "address": "0x64EEc1969Ca1EB6ca5483B7Aed0Dc87D3e72e3DA",
+        "selectors": [
+          "0xbce88857",
+          "0x09c56f36",
+          "0xb3af0e96",
+          "0xd389a61d",
+          "0xb3d6a58e",
+          "0x99a1b4d9"
+        ],
+        "selectorCount": 6
+      },
+      {
+        "address": "0xd9d490f9B1F09583937CAbd4C5EC103CB000C447",
+        "selectors": ["0x4e2441e6", "0x4f30e4c8"],
+        "selectorCount": 2
+      },
+      {
+        "address": "0xc03887BC392ba2c0c54f9fE701244A2DC61A18c7",
+        "selectors": [
+          "0x44ab4641",
+          "0xb691c03a",
+          "0x7e50b520",
+          "0x1766dfd8",
+          "0xebe9ee71",
+          "0xc52b2f4c",
+          "0x154b5ba5",
+          "0x8a7492e0",
+          "0xcbecffda",
+          "0x0c903833",
+          "0x19677686",
+          "0x5f860227",
+          "0x97417a5d",
+          "0xc3d2bba8",
+          "0x5f209119",
+          "0x7db6b066",
+          "0xab26aa48",
+          "0x1a506b6c",
+          "0x75532d5a",
+          "0xd564d9c4",
+          "0xced431ca"
+        ],
+        "selectorCount": 21
+      },
+      {
+        "address": "0x24289C2a13C89C18Cd088213B3A399B12CFc66b3",
+        "selectors": [
+          "0x99796d29",
+          "0x340198b4",
+          "0x713f8153",
+          "0x172bc3be",
+          "0x49fa06f9",
+          "0x1636b021",
+          "0x431e15e3",
+          "0xeb507fb3",
+          "0x3ee936b0",
+          "0xac3a0dc5"
+        ],
+        "selectorCount": 10
+      },
+      {
+        "address": "0x7A6b4353dFd1509Ec03c81cC623a5EdD48C9AD28",
+        "selectors": ["0xa04eb208"],
+        "selectorCount": 1
+      },
+      {
+        "address": "0xDB6f265771e4306808303DBd565B53a1D262aE82",
+        "selectors": ["0xa3027d75"],
+        "selectorCount": 1
+      },
+      {
+        "address": "0xCA6b6EDfEc305F17E85Cc4ec022BEBCAe86a0E67",
+        "selectors": ["0xf14dc8e2", "0xe2ba43a9", "0x13fcdd52", "0xb5ff5c3c"],
+        "selectorCount": 4
+      },
+      {
+        "address": "0x54e9cF3dE7986782889ab5E6FC8Ff126eD03B63a",
+        "selectors": ["0x80cc086b"],
+        "selectorCount": 1
+      },
+      {
+        "address": "0x874E973F6606cd1c2CC9258e1E2A6Ea2B6F35EBB",
+        "selectors": ["0x4592d723"],
+        "selectorCount": 1
+      },
+      {
+        "address": "0x8b456C7149db0a806F723374E38396E49ebcC536",
+        "selectors": ["0xed49ef23", "0xb3225059"],
+        "selectorCount": 2
+      },
+      {
+        "address": "0x74A18b95A6CF4f7D9C2132F1C0a6ebf49c50e836",
+        "selectors": ["0x32824124", "0xca865185"],
+        "selectorCount": 2
+      },
+      {
+        "address": "0x3088A80060a0872c2Dd646D3591E66ed5a13b5a7",
+        "selectors": ["0x3a891a90"],
+        "selectorCount": 1
+      },
+      {
+        "address": "0x337344A63b372eA78bb36AeE8df974581e05F4C6",
+        "selectors": ["0x15ebb987"],
+        "selectorCount": 1
+      },
+      {
+        "address": "0x3F02AB5070a36958BA968EbcAB438B220ccC7E78",
+        "selectors": [
+          "0xd038b749",
+          "0x1901aab0",
+          "0xc907a65f",
+          "0x70fe948f",
+          "0x87a23aa4",
+          "0xbedc5a1d",
+          "0x36629ed2",
+          "0xc74b56ff"
+        ],
+        "selectorCount": 8
+      },
+      {
+        "address": "0x8300f16E080E38d160A3e36E050BA382d6e44328",
+        "selectors": ["0xa71c0746"],
+        "selectorCount": 1
+      },
+      {
+        "address": "0xAfDa85A8299d372e1f96803403fDd44E8d442039",
+        "selectors": ["0xb0704b56", "0x91eb356c", "0xacb3586b"],
+        "selectorCount": 3
+      },
+      {
+        "address": "0x34C6188dcb55caa12cC565a3F96B59f296b25359",
+        "selectors": ["0x95b95740", "0x92076841"],
+        "selectorCount": 2
+      },
+      {
+        "address": "0x53543E99C2FB42072bA509b1594b0C7C36ABCF36",
+        "selectors": [
+          "0xbfb5fa10",
+          "0x9d899395",
+          "0x5d73d13c",
+          "0x5ea18ed6",
+          "0xff6d57e6",
+          "0x50d6be06",
+          "0xb18f8a3d",
+          "0xde46356d"
+        ],
+        "selectorCount": 8
+      },
+      {
+        "address": "0x061C6CF8e56867C674D65C8e11Ff011ad421b916",
+        "selectors": [
+          "0x2a12233a",
+          "0x8a4242ea",
+          "0x3c78899b",
+          "0x9bde2403",
+          "0x57c16ac1",
+          "0xf2aeefea",
+          "0xda446f5e",
+          "0x822665e0",
+          "0x8799c7a7",
+          "0xddc042a0",
+          "0xe72a3555"
+        ],
+        "selectorCount": 11
+      },
+      {
+        "address": "0xf5e0330d72422B1BDefBDd9f0fB3768DaEbfb1b8",
+        "selectors": ["0xd28baa8c"],
+        "selectorCount": 1
+      },
+      {
+        "address": "0x48e8848275819252a7dB9e29Db8aB765163C147F",
+        "selectors": ["0xad06c654", "0x24e07913", "0x77d94804"],
+        "selectorCount": 3
+      },
+      {
+        "address": "0x8D542E9a617C649a09B8cB37ad5Eb076C99AD2A8",
+        "selectors": ["0x1afb3369"],
+        "selectorCount": 1
+      },
+      {
+        "address": "0x0E58Fa8FEDE8cd6d676C9C339Ac937427FF4686c",
+        "selectors": ["0x32a66e89"],
+        "selectorCount": 1
+      },
+      {
+        "address": "0x9FF44AB1dc98B88394885D7068d6FFDd25102155",
+        "selectors": ["0x99518340"],
+        "selectorCount": 1
+      }
+    ]
+  },
+  "facets": [
+    {
+      "name": "AdministrationController",
+      "address": "0x874E973F6606cd1c2CC9258e1E2A6Ea2B6F35EBB",
+      "statistics": {
+        "totalSelectors": 1,
+        "foundSelectors": 1,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0x4592d723",
+            "name": "getRoleMembers",
+            "signature": "getRoleMembers(string)",
+            "mutability": "view"
+          }
+        ],
+        "unknown": []
+      },
+      "events": []
+    },
+    {
+      "name": "AdministrationController",
+      "address": "0x48e8848275819252a7dB9e29Db8aB765163C147F",
+      "statistics": {
+        "totalSelectors": 3,
+        "foundSelectors": 3,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0xad06c654",
+            "name": "grantInstitutionalRole",
+            "signature": "grantInstitutionalRole(string,string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x24e07913",
+            "name": "hasRole",
+            "signature": "hasRole(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x77d94804",
+            "name": "revokeInstitutionalRole",
+            "signature": "revokeInstitutionalRole(string,string)",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": []
+    },
+    {
+      "name": "BalanceOracle",
+      "address": "0xc03887BC392ba2c0c54f9fE701244A2DC61A18c7",
+      "statistics": {
+        "totalSelectors": 21,
+        "foundSelectors": 21,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0x44ab4641",
+            "name": "getAllCurrencyBalancesForInstitution",
+            "signature": "getAllCurrencyBalancesForInstitution(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xb691c03a",
+            "name": "getAvailableAndLockedBalanceForInstitutionWithReceiverNonce",
+            "signature": "getAvailableAndLockedBalanceForInstitutionWithReceiverNonce(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x7e50b520",
+            "name": "getGlobalFundingLimit",
+            "signature": "getGlobalFundingLimit(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x1766dfd8",
+            "name": "getGlobalLiquidationLimitPerSettlementCycle",
+            "signature": "getGlobalLiquidationLimitPerSettlementCycle(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xebe9ee71",
+            "name": "getInstitutionAvailableBalance",
+            "signature": "getInstitutionAvailableBalance(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xc52b2f4c",
+            "name": "getInstitutionBalances",
+            "signature": "getInstitutionBalances(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x154b5ba5",
+            "name": "getInstitutionBalancesAndReceiverNonce",
+            "signature": "getInstitutionBalancesAndReceiverNonce(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x8a7492e0",
+            "name": "getInstitutionFundingLimit",
+            "signature": "getInstitutionFundingLimit(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xcbecffda",
+            "name": "getInstitutionLiquidationLimitPerSettlementCycle",
+            "signature": "getInstitutionLiquidationLimitPerSettlementCycle(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x0c903833",
+            "name": "getInstitutionSettlementObligation",
+            "signature": "getInstitutionSettlementObligation(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x19677686",
+            "name": "getInstitutionSettlementPosition",
+            "signature": "getInstitutionSettlementPosition(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x5f860227",
+            "name": "getSelfAvailableAndLockedBalanceWithReceiverNonce",
+            "signature": "getSelfAvailableAndLockedBalanceWithReceiverNonce(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x97417a5d",
+            "name": "getSelfAvailableBalance",
+            "signature": "getSelfAvailableBalance(string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xc3d2bba8",
+            "name": "getSelfBalancesAndReceiverNonce",
+            "signature": "getSelfBalancesAndReceiverNonce(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x5f209119",
+            "name": "getSelfBalancesForAllCurrencies",
+            "signature": "getSelfBalancesForAllCurrencies()",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x7db6b066",
+            "name": "getSelfFundingLimit",
+            "signature": "getSelfFundingLimit(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xab26aa48",
+            "name": "getSelfLiquidationLimitPerSettlementCycle",
+            "signature": "getSelfLiquidationLimitPerSettlementCycle(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x1a506b6c",
+            "name": "getSelfSettlementObligation",
+            "signature": "getSelfSettlementObligation(string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x75532d5a",
+            "name": "getSelfSettlementPosition",
+            "signature": "getSelfSettlementPosition(string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xd564d9c4",
+            "name": "getSelfSpendableBalanceWithReceiverNonce",
+            "signature": "getSelfSpendableBalanceWithReceiverNonce(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xced431ca",
+            "name": "getSpendableBalanceForInstitutionWithReceiverNonce",
+            "signature": "getSpendableBalanceForInstitutionWithReceiverNonce(string,string)",
+            "mutability": "view"
+          }
+        ],
+        "unknown": []
+      },
+      "events": []
+    },
+    {
+      "name": "BalanceOracle",
+      "address": "0x8b456C7149db0a806F723374E38396E49ebcC536",
+      "statistics": {
+        "totalSelectors": 2,
+        "foundSelectors": 2,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0xed49ef23",
+            "name": "getInstitutionSettlementLiquidationCap",
+            "signature": "getInstitutionSettlementLiquidationCap(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xb3225059",
+            "name": "getSelfSettlementLiquidationCap",
+            "signature": "getSelfSettlementLiquidationCap(string)",
+            "mutability": "view"
+          }
+        ],
+        "unknown": []
+      },
+      "events": []
+    },
+    {
+      "name": "BalanceOracle",
+      "address": "0x34C6188dcb55caa12cC565a3F96B59f296b25359",
+      "statistics": {
+        "totalSelectors": 2,
+        "foundSelectors": 2,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0x95b95740",
+            "name": "getInstitutionWithdrawableBalance",
+            "signature": "getInstitutionWithdrawableBalance(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x92076841",
+            "name": "getSelfWithdrawableBalance",
+            "signature": "getSelfWithdrawableBalance(string)",
+            "mutability": "view"
+          }
+        ],
+        "unknown": []
+      },
+      "events": []
+    },
+    {
+      "name": "BalanceOracle",
+      "address": "0x53543E99C2FB42072bA509b1594b0C7C36ABCF36",
+      "statistics": {
+        "totalSelectors": 8,
+        "foundSelectors": 8,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0xbfb5fa10",
+            "name": "getBatchClosingBalanceForInstitution",
+            "signature": "getBatchClosingBalanceForInstitution(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x9d899395",
+            "name": "getBatchReportCountAndLatestReportCount",
+            "signature": "getBatchReportCountAndLatestReportCount(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x5d73d13c",
+            "name": "getCummulativeLiquidationsPostBatchCloseAndPreSettlementPosting",
+            "signature": "getCummulativeLiquidationsPostBatchCloseAndPreSettlementPosting(string,string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x5ea18ed6",
+            "name": "getInstitutionWorkingClosureBalance",
+            "signature": "getInstitutionWorkingClosureBalance(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xff6d57e6",
+            "name": "getLastPostedBatchCountForSettlementBank",
+            "signature": "getLastPostedBatchCountForSettlementBank(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x50d6be06",
+            "name": "getSelfBatchClosingPosition",
+            "signature": "getSelfBatchClosingPosition(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xb18f8a3d",
+            "name": "getSelfCummulativeLiquidationsPostBatchCloseAndPreSettlementPosting",
+            "signature": "getSelfCummulativeLiquidationsPostBatchCloseAndPreSettlementPosting(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xde46356d",
+            "name": "getSelfWorkingClosureBalance",
+            "signature": "getSelfWorkingClosureBalance(string)",
+            "mutability": "view"
+          }
+        ],
+        "unknown": []
+      },
+      "events": []
+    },
+    {
+      "name": "CardlessController",
+      "address": "0xcEd761Feefb1F3d2d266d63363B53e08F3073e6A",
+      "statistics": {
+        "totalSelectors": 2,
+        "foundSelectors": 2,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0xe12d250f",
+            "name": "getEarliestTransaction",
+            "signature": "getEarliestTransaction(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xa4d59e7d",
+            "name": "markTransactionAsPrinted",
+            "signature": "markTransactionAsPrinted(string,string)",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": []
+    },
+    {
+      "name": "Currency",
+      "address": "0xA1d788945fd4B080Ab16dC1AD12a50af087D0f8E",
+      "statistics": {
+        "totalSelectors": 1,
+        "foundSelectors": 1,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0x98dc2d84",
+            "name": "createCurrency",
+            "signature": "createCurrency(string,string,uint256)",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": []
+    },
+    {
+      "name": "FeeConfigurator",
+      "address": "0x24289C2a13C89C18Cd088213B3A399B12CFc66b3",
+      "statistics": {
+        "totalSelectors": 10,
+        "foundSelectors": 10,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0x99796d29",
+            "name": "configureFee",
+            "signature": "configureFee((string,bool,bool,bool,string,string,uint256,uint256,uint256,uint256,uint256,string[],uint256[],uint256,bool))",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x340198b4",
+            "name": "getAllExistingFilters",
+            "signature": "getAllExistingFilters()",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x713f8153",
+            "name": "getExtraParticipantFeeInfo",
+            "signature": "getExtraParticipantFeeInfo(string,string,string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x172bc3be",
+            "name": "getFeeConfigurationInfoInDetail",
+            "signature": "getFeeConfigurationInfoInDetail(string,string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x49fa06f9",
+            "name": "getInstitutionsForWhichASpecificFilterHasBeenConfigured",
+            "signature": "getInstitutionsForWhichASpecificFilterHasBeenConfigured(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x1636b021",
+            "name": "getTotalTransactionFeeAndCap",
+            "signature": "getTotalTransactionFeeAndCap(string,string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x431e15e3",
+            "name": "getTotalTransactionFeeAndCapForAnInstitutonForAllFilters",
+            "signature": "getTotalTransactionFeeAndCapForAnInstitutonForAllFilters(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xeb507fb3",
+            "name": "getTotalTransactionFeeAndCapForAnInstitutonForAllMarkupFilters",
+            "signature": "getTotalTransactionFeeAndCapForAnInstitutonForAllMarkupFilters(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x3ee936b0",
+            "name": "updateFeeConfiguration",
+            "signature": "updateFeeConfiguration((string,bool,bool,bool,string,string,uint256,uint256,uint256,uint256,uint256,string[],uint256[],uint256,bool))",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xac3a0dc5",
+            "name": "updateTotalTransactionFeeCap",
+            "signature": "updateTotalTransactionFeeCap(string,string,string,uint256)",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": []
+    },
+    {
+      "name": "Funding",
+      "address": "0x76cfC5337B065EF9b06EfA9a52d755C9E98cB837",
+      "statistics": {
+        "totalSelectors": 8,
+        "foundSelectors": 8,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0xbb529edf",
+            "name": "configureFundingLimitForInstitution",
+            "signature": "configureFundingLimitForInstitution(string,string,uint256)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xda437ea8",
+            "name": "configureGlobalFundingLimit",
+            "signature": "configureGlobalFundingLimit(string,uint256)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xc171eb9e",
+            "name": "configureGlobalLiquidationLimitPerSettlementCycle",
+            "signature": "configureGlobalLiquidationLimitPerSettlementCycle(string,uint256)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xb9ff95c2",
+            "name": "configureLiquidationLimitPerSettlementCycleForInstitution",
+            "signature": "configureLiquidationLimitPerSettlementCycleForInstitution(string,string,uint256)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x6a0c4893",
+            "name": "fundInstitution",
+            "signature": "fundInstitution((string,string,uint256,string,string))",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x19a60f39",
+            "name": "fundPrimaryInstitution",
+            "signature": "fundPrimaryInstitution((string,string,uint256,string,string))",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xe59d75a3",
+            "name": "liquidatePosition",
+            "signature": "liquidatePosition((string,string,uint256,string,string))",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x99a9b121",
+            "name": "reverseLiquidation",
+            "signature": "reverseLiquidation(string)",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": [
+        {
+          "name": "BalanceChange",
+          "signature": "BalanceChange(bytes32 indexed,bytes32 indexed,bytes32 indexed,tuple)"
+        },
+        {
+          "name": "InstitutionSuccessfullyFunded",
+          "signature": "InstitutionSuccessfullyFunded(bytes32 indexed,bytes32 indexed,bytes32 indexed,tuple)"
+        },
+        {
+          "name": "InstitutionSuccessfullyLiquidated",
+          "signature": "InstitutionSuccessfullyLiquidated(bytes32 indexed,bytes32 indexed,bytes32 indexed,tuple)"
+        },
+        {
+          "name": "LiquidationCapUpdated",
+          "signature": "LiquidationCapUpdated(bytes32 indexed,bytes32 indexed,bytes32 indexed,uint256,uint256,uint256,uint8)"
+        },
+        {
+          "name": "LiquidationReversed",
+          "signature": "LiquidationReversed(bytes32 indexed,bytes32 indexed,bytes32 indexed,uint256,tuple)"
+        }
+      ]
+    },
+    {
+      "name": "ModuleRetriever",
+      "address": "0x22C18672c657e0Cd1DDe44a6C6B0FE153DfA3Bc4",
+      "statistics": {
+        "totalSelectors": 5,
+        "foundSelectors": 5,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0xb7c89c45",
+            "name": "moduleAddresses",
+            "signature": "moduleAddresses()",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xb1f61147",
+            "name": "moduleFunctionSelectors",
+            "signature": "moduleFunctionSelectors(address)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xf7e80e98",
+            "name": "modules",
+            "signature": "modules()",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x1814ecaf",
+            "name": "singleModuleAddress",
+            "signature": "singleModuleAddress(bytes4)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x01ffc9a7",
+            "name": "supportsInterface",
+            "signature": "supportsInterface(bytes4)",
+            "mutability": "view"
+          }
+        ],
+        "unknown": []
+      },
+      "events": []
+    },
+    {
+      "name": "NameEnquiry",
+      "address": "0xf43EeB39969CAdE599747D8ed432dB6D01bBE15F",
+      "statistics": {
+        "totalSelectors": 4,
+        "foundSelectors": 4,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0x66f27d76",
+            "name": "addName",
+            "signature": "addName((string,string,string,string),bytes,uint256)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x7e04f329",
+            "name": "addName",
+            "signature": "addName((string,string,string,string))",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x75f22177",
+            "name": "emitNameNotFound",
+            "signature": "emitNameNotFound((string,string,string))",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xcb7bc3be",
+            "name": "enquireName",
+            "signature": "enquireName((string,string,string))",
+            "mutability": "view"
+          }
+        ],
+        "unknown": []
+      },
+      "events": []
+    },
+    {
+      "name": "NodeManagement",
+      "address": "0x3F02AB5070a36958BA968EbcAB438B220ccC7E78",
+      "statistics": {
+        "totalSelectors": 8,
+        "foundSelectors": 8,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0xd038b749",
+            "name": "attachASharedNodeClientToAManagedServiceProvider",
+            "signature": "attachASharedNodeClientToAManagedServiceProvider(string,string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x1901aab0",
+            "name": "configureManagedServiceProviderFee",
+            "signature": "configureManagedServiceProviderFee(string,(uint256,uint256,uint256,uint256,bool,uint256))",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xc907a65f",
+            "name": "disableAManagedServiceProvider",
+            "signature": "disableAManagedServiceProvider(string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x70fe948f",
+            "name": "getAllMangedServiceProviders",
+            "signature": "getAllMangedServiceProviders()",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x87a23aa4",
+            "name": "getAllSharedNodeClientsPerManagedServiceProvider",
+            "signature": "getAllSharedNodeClientsPerManagedServiceProvider(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xbedc5a1d",
+            "name": "getConfiguredManagedServiceProviderFee",
+            "signature": "getConfiguredManagedServiceProviderFee(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x36629ed2",
+            "name": "makeInstitutionAManagedServiceProvider",
+            "signature": "makeInstitutionAManagedServiceProvider(string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xc74b56ff",
+            "name": "removeASharedNodeClientFromAManagedServiceProvider",
+            "signature": "removeASharedNodeClientFromAManagedServiceProvider(string,string)",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": [
+        {
+          "name": "InstitutionDisabledFromBeingAManagedServiceProvider",
+          "signature": "InstitutionDisabledFromBeingAManagedServiceProvider(string)"
+        },
+        {
+          "name": "InstitutionMadeManagedServiceProvider",
+          "signature": "InstitutionMadeManagedServiceProvider(string)"
+        },
+        {
+          "name": "ManagedServiceProviderFeeConfigured",
+          "signature": "ManagedServiceProviderFeeConfigured(string,tuple)"
+        },
+        {
+          "name": "SharedNodeClientAttachedToAManagedServiceProvider",
+          "signature": "SharedNodeClientAttachedToAManagedServiceProvider(string,string)"
+        },
+        {
+          "name": "SharedNodeClientDetachedFromAManagedServiceProvider",
+          "signature": "SharedNodeClientDetachedFromAManagedServiceProvider(string,string)"
+        }
+      ]
+    },
+    {
+      "name": "Ownership",
+      "address": "0xF2646c2bc19084b593B6BB995b3Fa62633E5f9F9",
+      "statistics": {
+        "totalSelectors": 2,
+        "foundSelectors": 2,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0x8da5cb5b",
+            "name": "owner",
+            "signature": "owner()",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xf2fde38b",
+            "name": "transferOwnership",
+            "signature": "transferOwnership(address)",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": [
+        {
+          "name": "OwnershipTransferred",
+          "signature": "OwnershipTransferred(address indexed,address indexed)"
+        }
+      ]
+    },
+    {
+      "name": "PTSAReportManagement",
+      "address": "0x0E58Fa8FEDE8cd6d676C9C339Ac937427FF4686c",
+      "statistics": {
+        "totalSelectors": 1,
+        "foundSelectors": 1,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0x32a66e89",
+            "name": "logReportDataSig",
+            "signature": "logReportDataSig((string,string,string,uint256,string,string,string,(string,string)[]),bytes,uint256)",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": [
+        {
+          "name": "ReportData",
+          "signature": "ReportData(bytes32,bytes32,bytes32,tuple)"
+        }
+      ]
+    },
+    {
+      "name": "PTSATerminalManagement",
+      "address": "0x061C6CF8e56867C674D65C8e11Ff011ad421b916",
+      "statistics": {
+        "totalSelectors": 11,
+        "foundSelectors": 11,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0x2a12233a",
+            "name": "fetchATerminal",
+            "signature": "fetchATerminal(string,string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x8a4242ea",
+            "name": "fetchAllTerminals",
+            "signature": "fetchAllTerminals(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x3c78899b",
+            "name": "fetchMultipleTerminals",
+            "signature": "fetchMultipleTerminals(string,string,string[])",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x9bde2403",
+            "name": "registerATerminal",
+            "signature": "registerATerminal(string,string,(string,string,string,string))",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x57c16ac1",
+            "name": "registerTerminals",
+            "signature": "registerTerminals(string,string,(string,string,string,string)[])",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xf2aeefea",
+            "name": "removeATerminal",
+            "signature": "removeATerminal(string,string,string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xda446f5e",
+            "name": "removeAllTerminals",
+            "signature": "removeAllTerminals(string,string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x822665e0",
+            "name": "removeMultipleTerminals",
+            "signature": "removeMultipleTerminals(string,string,string[])",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x8799c7a7",
+            "name": "updateATerminal",
+            "signature": "updateATerminal(string,string,(string,string,string,string))",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xddc042a0",
+            "name": "updateAllTerminals",
+            "signature": "updateAllTerminals(string,string,(string,string,string,string)[])",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xe72a3555",
+            "name": "updateMultipleTerminals",
+            "signature": "updateMultipleTerminals(string,string,(string,string,string,string)[])",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": []
+    },
+    {
+      "name": "Registeration",
+      "address": "0x35946fb07E0194E555b9A91Bb5154f9F9d28Ec8F",
+      "statistics": {
+        "totalSelectors": 7,
+        "foundSelectors": 7,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0x6b492dfa",
+            "name": "disableInstitutionForGivenCurrency",
+            "signature": "disableInstitutionForGivenCurrency(string,string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x62c29aae",
+            "name": "enableInstitutionForGivenCurrency",
+            "signature": "enableInstitutionForGivenCurrency(string,string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x92e09d81",
+            "name": "makeInstitutionPrimary",
+            "signature": "makeInstitutionPrimary(string,string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x765ac197",
+            "name": "makeInstitutionSecondary",
+            "signature": "makeInstitutionSecondary(string,string,string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x522842d1",
+            "name": "registerInstitution",
+            "signature": "registerInstitution(string,string,address)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xb843bd9f",
+            "name": "registerInstitutionPublicKey",
+            "signature": "registerInstitutionPublicKey(string,address)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x185d5fd8",
+            "name": "registerZoneIncomeInstitution",
+            "signature": "registerZoneIncomeInstitution(string,string,address)",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": [
+        {
+          "name": "InstitutionMadePrimary",
+          "signature": "InstitutionMadePrimary(string,string,string indexed,string indexed,uint256 indexed)"
+        },
+        {
+          "name": "InstitutionMadeSecondary",
+          "signature": "InstitutionMadeSecondary(string,string,string,string indexed,string indexed,string indexed,uint256)"
+        },
+        {
+          "name": "InstitutionPublicKeyAssigned",
+          "signature": "InstitutionPublicKeyAssigned(string,address indexed,string indexed,uint256 indexed)"
+        },
+        {
+          "name": "InstitutionRegistered",
+          "signature": "InstitutionRegistered(string,string,address,string indexed,string indexed,uint256 indexed)"
+        },
+        {
+          "name": "ParentInstitutionChanged",
+          "signature": "ParentInstitutionChanged(string,string,string,string,string indexed,string indexed,string indexed,uint256)"
+        }
+      ]
+    },
+    {
+      "name": "ReportController",
+      "address": "0xCb101ce2c90063827a2B5997F275D3d80eE090d7",
+      "statistics": {
+        "totalSelectors": 4,
+        "foundSelectors": 4,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0x339fb996",
+            "name": "closeBatch",
+            "signature": "closeBatch(string,string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xf94fff1a",
+            "name": "closeBatchNGN",
+            "signature": "closeBatchNGN(string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x6d81d3a1",
+            "name": "getInstitutionReport",
+            "signature": "getInstitutionReport(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x12e63d71",
+            "name": "getReport",
+            "signature": "getReport(string)",
+            "mutability": "view"
+          }
+        ],
+        "unknown": []
+      },
+      "events": [
+        {
+          "name": "Batchclosed",
+          "signature": "Batchclosed(string,string indexed,uint256,uint256,uint256 indexed)"
+        }
+      ]
+    },
+    {
+      "name": "Reporter",
+      "address": "0xAfDa85A8299d372e1f96803403fDd44E8d442039",
+      "statistics": {
+        "totalSelectors": 3,
+        "foundSelectors": 3,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0xb0704b56",
+            "name": "getCurrentReportCount",
+            "signature": "getCurrentReportCount()",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x91eb356c",
+            "name": "getLatestBatchIdPerCurrency",
+            "signature": "getLatestBatchIdPerCurrency(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xacb3586b",
+            "name": "synchronizeLastBatchIdForCurrencyWithCurrentReportCount",
+            "signature": "synchronizeLastBatchIdForCurrencyWithCurrentReportCount(string)",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": [
+        {
+          "name": "Batchclosed",
+          "signature": "Batchclosed(string,string indexed,uint256,uint256,uint256 indexed)"
+        }
+      ]
+    },
+    {
+      "name": "Reversal",
+      "address": "0x7A6b4353dFd1509Ec03c81cC623a5EdD48C9AD28",
+      "statistics": {
+        "totalSelectors": 1,
+        "foundSelectors": 1,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0xa04eb208",
+            "name": "reverseTransfer",
+            "signature": "reverseTransfer(string)",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": [
+        {
+          "name": "BalanceChange",
+          "signature": "BalanceChange(bytes32 indexed,bytes32 indexed,bytes32 indexed,tuple)"
+        },
+        {
+          "name": "elapsedTime",
+          "signature": "elapsedTime(uint256)"
+        },
+        {
+          "name": "reversalSent",
+          "signature": "reversalSent(bytes32 indexed,bytes32 indexed,bytes32 indexed,tuple)"
+        },
+        {
+          "name": "reversed",
+          "signature": "reversed(bytes32 indexed,bytes32 indexed,bytes32 indexed,uint256,tuple)"
+        },
+        {
+          "name": "unlocked",
+          "signature": "unlocked(bytes32 indexed,bytes32 indexed,uint256,tuple)"
+        }
+      ]
+    },
+    {
+      "name": "Secretary",
+      "address": "0x7B1D9997b35FFC3AF4464A548e72779c0a251249",
+      "statistics": {
+        "totalSelectors": 23,
+        "foundSelectors": 23,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0xee64cd5c",
+            "name": "addSpecialInstitutions",
+            "signature": "addSpecialInstitutions(string,string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x9a750f9b",
+            "name": "checkIfCurrencyIsSupported",
+            "signature": "checkIfCurrencyIsSupported(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xa68a2e4e",
+            "name": "checkIfInstitutionIsApprovedForCurrency",
+            "signature": "checkIfInstitutionIsApprovedForCurrency(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xbf7871f5",
+            "name": "checkIfIsRegisteredInstitution",
+            "signature": "checkIfIsRegisteredInstitution(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x3f256195",
+            "name": "getAllSelfChildInstitutionsAndPublicKeys",
+            "signature": "getAllSelfChildInstitutionsAndPublicKeys()",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x40d63008",
+            "name": "getApprovedInstitutions",
+            "signature": "getApprovedInstitutions(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x1ea48ffa",
+            "name": "getCurrencyAddress",
+            "signature": "getCurrencyAddress(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xbcc95f07",
+            "name": "getCurrentTransactionParticipants",
+            "signature": "getCurrentTransactionParticipants(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x39bce665",
+            "name": "getExpectedTransactionParticipantCountForTransactionType",
+            "signature": "getExpectedTransactionParticipantCountForTransactionType(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x67aa8242",
+            "name": "getInstitutionInformationDetailed",
+            "signature": "getInstitutionInformationDetailed(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x62c4275c",
+            "name": "getInstitutionInformationMinimal",
+            "signature": "getInstitutionInformationMinimal(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x1e2bb582",
+            "name": "getOverallTransactionStatus",
+            "signature": "getOverallTransactionStatus(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xb31993e3",
+            "name": "getOverallTransactionStatusInDetails",
+            "signature": "getOverallTransactionStatusInDetails(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xa73f36f3",
+            "name": "getParticipantTransactionStatus",
+            "signature": "getParticipantTransactionStatus(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x9f4f131d",
+            "name": "getPrimaryInstitutions",
+            "signature": "getPrimaryInstitutions(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x885ba59e",
+            "name": "getRegisteredInstitutions",
+            "signature": "getRegisteredInstitutions()",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x425cf241",
+            "name": "getSelfChildInstitutions",
+            "signature": "getSelfChildInstitutions(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xa1891dde",
+            "name": "getSpecialInstitution",
+            "signature": "getSpecialInstitution(string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x01324018",
+            "name": "getStoredInformation",
+            "signature": "getStoredInformation(string,string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x2ce75863",
+            "name": "getSupportedCurrencies",
+            "signature": "getSupportedCurrencies()",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xf77b9d0d",
+            "name": "storeInformation",
+            "signature": "storeInformation(string,string,string,string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x0bccb3af",
+            "name": "updateInformation",
+            "signature": "updateInformation(string,string,string,string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xe9683a99",
+            "name": "updateSpecialInstitutions",
+            "signature": "updateSpecialInstitutions(string,string)",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": [
+        {
+          "name": "feeCapUpdated",
+          "signature": "feeCapUpdated(bytes32 indexed,bytes32 indexed,bytes32 indexed,uint256,uint256)"
+        },
+        {
+          "name": "feeConfigured",
+          "signature": "feeConfigured(bytes32 indexed,bytes32 indexed,bytes32 indexed,tuple)"
+        }
+      ]
+    },
+    {
+      "name": "Secretary",
+      "address": "0xCA6b6EDfEc305F17E85Cc4ec022BEBCAe86a0E67",
+      "statistics": {
+        "totalSelectors": 4,
+        "foundSelectors": 4,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0xf14dc8e2",
+            "name": "getBatchChildInstitutionsForSettlementBank",
+            "signature": "getBatchChildInstitutionsForSettlementBank(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xe2ba43a9",
+            "name": "getCurrentVersionNumber",
+            "signature": "getCurrentVersionNumber()",
+            "mutability": "view"
+          },
+          {
+            "selector": "0x13fcdd52",
+            "name": "getInstitutionBatchClosingPosition",
+            "signature": "getInstitutionBatchClosingPosition(string,string)",
+            "mutability": "view"
+          },
+          {
+            "selector": "0xb5ff5c3c",
+            "name": "getLastPostingCountAndReportCountForSettlementBank",
+            "signature": "getLastPostingCountAndReportCountForSettlementBank(string,string,string)",
+            "mutability": "view"
+          }
+        ],
+        "unknown": []
+      },
+      "events": [
+        {
+          "name": "feeCapUpdated",
+          "signature": "feeCapUpdated(bytes32 indexed,bytes32 indexed,bytes32 indexed,uint256,uint256)"
+        },
+        {
+          "name": "feeConfigured",
+          "signature": "feeConfigured(bytes32 indexed,bytes32 indexed,bytes32 indexed,tuple)"
+        }
+      ]
+    },
+    {
+      "name": "Secretary",
+      "address": "0x8300f16E080E38d160A3e36E050BA382d6e44328",
+      "statistics": {
+        "totalSelectors": 1,
+        "foundSelectors": 1,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0xa71c0746",
+            "name": "getRegisteredInstitutionsWithNodeConfigType",
+            "signature": "getRegisteredInstitutionsWithNodeConfigType()",
+            "mutability": "view"
+          }
+        ],
+        "unknown": []
+      },
+      "events": [
+        {
+          "name": "feeCapUpdated",
+          "signature": "feeCapUpdated(bytes32 indexed,bytes32 indexed,bytes32 indexed,uint256,uint256)"
+        },
+        {
+          "name": "feeConfigured",
+          "signature": "feeConfigured(bytes32 indexed,bytes32 indexed,bytes32 indexed,tuple)"
+        }
+      ]
+    },
+    {
+      "name": "SettlementPostingService",
+      "address": "0x74A18b95A6CF4f7D9C2132F1C0a6ebf49c50e836",
+      "statistics": {
+        "totalSelectors": 2,
+        "foundSelectors": 2,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0x32824124",
+            "name": "recordSettlementBatchPosting",
+            "signature": "recordSettlementBatchPosting(string,string)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xca865185",
+            "name": "recordSettlementBatchPostingWithSig",
+            "signature": "recordSettlementBatchPostingWithSig((string,string,bytes,uint256))",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": [
+        {
+          "name": "SettlementBatchPosted",
+          "signature": "SettlementBatchPosted(bytes32 indexed,bytes32 indexed,bytes32 indexed,tuple)"
+        },
+        {
+          "name": "SettlementBatchPostingRecorded",
+          "signature": "SettlementBatchPostingRecorded(bytes32 indexed,bytes32 indexed,tuple)"
+        }
+      ]
+    },
+    {
+      "name": "StatusTracker",
+      "address": "0xd9d490f9B1F09583937CAbd4C5EC103CB000C447",
+      "statistics": {
+        "totalSelectors": 2,
+        "foundSelectors": 1,
+        "unknownSelectors": 1
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0x4e2441e6",
+            "name": "configureExpectedParticipantCount",
+            "signature": "configureExpectedParticipantCount(string,uint256,bool)",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": [
+          {
+            "selector": "0x4f30e4c8",
+            "reason": "Function signature could not be determined"
+          }
+        ]
+      },
+      "events": [
+        {
+          "name": "reconciliationRequired",
+          "signature": "reconciliationRequired(bytes32 indexed,bytes32 indexed,bytes32 indexed,tuple)"
+        },
+        {
+          "name": "transactionStatusUpdated",
+          "signature": "transactionStatusUpdated(bytes32 indexed,bytes32 indexed,bytes32 indexed,tuple)"
+        },
+        {
+          "name": "unlocked",
+          "signature": "unlocked(bytes32 indexed,bytes32 indexed,uint256,tuple)"
+        }
+      ]
+    },
+    {
+      "name": "StatusTracker",
+      "address": "0x9FF44AB1dc98B88394885D7068d6FFDd25102155",
+      "statistics": {
+        "totalSelectors": 1,
+        "foundSelectors": 1,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0x99518340",
+            "name": "updateTransactionStatusSig",
+            "signature": "updateTransactionStatusSig((string,string,string,string,string,string,uint256,bytes,uint256))",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": [
+        {
+          "name": "reconciliationRequired",
+          "signature": "reconciliationRequired(bytes32 indexed,bytes32 indexed,bytes32 indexed,tuple)"
+        },
+        {
+          "name": "transactionStatusUpdated",
+          "signature": "transactionStatusUpdated(bytes32 indexed,bytes32 indexed,bytes32 indexed,tuple)"
+        },
+        {
+          "name": "unlocked",
+          "signature": "unlocked(bytes32 indexed,bytes32 indexed,uint256,tuple)"
+        }
+      ]
+    },
+    {
+      "name": "TransactionStatus",
+      "address": "0x64EEc1969Ca1EB6ca5483B7Aed0Dc87D3e72e3DA",
+      "statistics": {
+        "totalSelectors": 6,
+        "foundSelectors": 6,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0xbce88857",
+            "name": "markTransactionAsConsummated",
+            "signature": "markTransactionAsConsummated((string,bool),bytes,uint256)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x09c56f36",
+            "name": "markTransactionAsFinallySettled",
+            "signature": "markTransactionAsFinallySettled((string,bool),bytes,uint256)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xb3af0e96",
+            "name": "markTransactionAsFinallySettled",
+            "signature": "markTransactionAsFinallySettled(string,bool)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xd389a61d",
+            "name": "markTransactionAsInitiated",
+            "signature": "markTransactionAsInitiated(string,string,bool)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0xb3d6a58e",
+            "name": "markTransactionReversalAsInitiated",
+            "signature": "markTransactionReversalAsInitiated((string,bool),bytes,uint256)",
+            "mutability": "nonpayable"
+          },
+          {
+            "selector": "0x99a1b4d9",
+            "name": "markTransactionReversalAsRefunded",
+            "signature": "markTransactionReversalAsRefunded((string,bool),bytes,uint256)",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": []
+    },
+    {
+      "name": "Transfer",
+      "address": "0x8D542E9a617C649a09B8cB37ad5Eb076C99AD2A8",
+      "statistics": {
+        "totalSelectors": 1,
+        "foundSelectors": 1,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0x1afb3369",
+            "name": "transfer",
+            "signature": "transfer((string,string,string,uint256,string,string,string,(string,string)[]))",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": [
+        {
+          "name": "BalanceChange",
+          "signature": "BalanceChange(bytes32 indexed,bytes32 indexed,bytes32 indexed,tuple)"
+        },
+        {
+          "name": "elapsedTime",
+          "signature": "elapsedTime(uint256)"
+        },
+        {
+          "name": "participantPositionsAfterTransfer",
+          "signature": "participantPositionsAfterTransfer(bytes32,bytes32,bytes32,tuple)"
+        },
+        {
+          "name": "reversalSent",
+          "signature": "reversalSent(bytes32 indexed,bytes32 indexed,bytes32 indexed,tuple)"
+        },
+        {
+          "name": "reversed",
+          "signature": "reversed(bytes32 indexed,bytes32 indexed,bytes32 indexed,uint256,tuple)"
+        },
+        {
+          "name": "transferSent",
+          "signature": "transferSent(bytes32 indexed,bytes32 indexed,bytes32 indexed,tuple)"
+        },
+        {
+          "name": "transferred",
+          "signature": "transferred(bytes32 indexed,bytes32 indexed,bytes32 indexed,tuple)"
+        },
+        {
+          "name": "unlocked",
+          "signature": "unlocked(bytes32 indexed,bytes32 indexed,uint256,tuple)"
+        }
+      ]
+    },
+    {
+      "name": "Unknown Facet (0x3088A80060a0872c2Dd646D3591E66ed5a13b5a7)",
+      "address": "0x3088A80060a0872c2Dd646D3591E66ed5a13b5a7",
+      "statistics": {
+        "totalSelectors": 1,
+        "foundSelectors": 0,
+        "unknownSelectors": 1
+      },
+      "selectors": {
+        "found": [],
+        "unknown": [
+          {
+            "selector": "0x3a891a90",
+            "reason": "Function signature could not be determined"
+          }
+        ]
+      },
+      "events": []
+    },
+    {
+      "name": "Unknown Facet (0x337344A63b372eA78bb36AeE8df974581e05F4C6)",
+      "address": "0x337344A63b372eA78bb36AeE8df974581e05F4C6",
+      "statistics": {
+        "totalSelectors": 1,
+        "foundSelectors": 0,
+        "unknownSelectors": 1
+      },
+      "selectors": {
+        "found": [],
+        "unknown": [
+          {
+            "selector": "0x15ebb987",
+            "reason": "Function signature could not be determined"
+          }
+        ]
+      },
+      "events": []
+    },
+    {
+      "name": "Unknown Facet (0x54e9cF3dE7986782889ab5E6FC8Ff126eD03B63a)",
+      "address": "0x54e9cF3dE7986782889ab5E6FC8Ff126eD03B63a",
+      "statistics": {
+        "totalSelectors": 1,
+        "foundSelectors": 0,
+        "unknownSelectors": 1
+      },
+      "selectors": {
+        "found": [],
+        "unknown": [
+          {
+            "selector": "0x80cc086b",
+            "reason": "Function signature could not be determined"
+          }
+        ]
+      },
+      "events": []
+    },
+    {
+      "name": "Unknown Facet (0xF0F5E67EbDB2AD1f58450c068B9De57f35589D12)",
+      "address": "0xF0F5E67EbDB2AD1f58450c068B9De57f35589D12",
+      "statistics": {
+        "totalSelectors": 1,
+        "foundSelectors": 0,
+        "unknownSelectors": 1
+      },
+      "selectors": {
+        "found": [],
+        "unknown": [
+          {
+            "selector": "0xde6b1356",
+            "reason": "Function signature could not be determined"
+          }
+        ]
+      },
+      "events": []
+    },
+    {
+      "name": "Unknown Facet (0xf5e0330d72422B1BDefBDd9f0fB3768DaEbfb1b8)",
+      "address": "0xf5e0330d72422B1BDefBDd9f0fB3768DaEbfb1b8",
+      "statistics": {
+        "totalSelectors": 1,
+        "foundSelectors": 0,
+        "unknownSelectors": 1
+      },
+      "selectors": {
+        "found": [],
+        "unknown": [
+          {
+            "selector": "0xd28baa8c",
+            "reason": "Function signature could not be determined"
+          }
+        ]
+      },
+      "events": []
+    },
+    {
+      "name": "UpgradeService",
+      "address": "0x2be41613599A502add1845f5e807fF9Ba0542153",
+      "statistics": {
+        "totalSelectors": 1,
+        "foundSelectors": 1,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0x5298e42c",
+            "name": "upgrade",
+            "signature": "upgrade((address,uint8,bytes4[])[],address,bytes)",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": [
+        {
+          "name": "Upgraded",
+          "signature": "Upgraded(tuple[],address,bytes,string,string)"
+        },
+        {
+          "name": "versionNumberUpdated",
+          "signature": "versionNumberUpdated(string,string)"
+        }
+      ]
+    },
+    {
+      "name": "UpgradeService",
+      "address": "0xDB6f265771e4306808303DBd565B53a1D262aE82",
+      "statistics": {
+        "totalSelectors": 1,
+        "foundSelectors": 1,
+        "unknownSelectors": 0
+      },
+      "selectors": {
+        "found": [
+          {
+            "selector": "0xa3027d75",
+            "name": "versionedUpgrade",
+            "signature": "versionedUpgrade((address,uint8,bytes4[])[],address,bytes,string,string)",
+            "mutability": "nonpayable"
+          }
+        ],
+        "unknown": []
+      },
+      "events": [
+        {
+          "name": "Upgraded",
+          "signature": "Upgraded(tuple[],address,bytes,string,string)"
+        },
+        {
+          "name": "versionNumberUpdated",
+          "signature": "versionNumberUpdated(string,string)"
+        }
+      ]
+    }
+  ],
+  "unknownSelectors": {
+    "total": 6,
+    "breakdown": [
+      {
+        "facetAddress": "0xd9d490f9B1F09583937CAbd4C5EC103CB000C447",
+        "facetName": "StatusTracker",
+        "selectors": [
+          {
+            "selector": "0x4f30e4c8",
+            "reason": "Function signature could not be determined"
+          }
+        ]
+      },
+      {
+        "facetAddress": "0x3088A80060a0872c2Dd646D3591E66ed5a13b5a7",
+        "facetName": "Unknown Facet (0x3088A80060a0872c2Dd646D3591E66ed5a13b5a7)",
+        "selectors": [
+          {
+            "selector": "0x3a891a90",
+            "reason": "Function signature could not be determined"
+          }
+        ]
+      },
+      {
+        "facetAddress": "0x337344A63b372eA78bb36AeE8df974581e05F4C6",
+        "facetName": "Unknown Facet (0x337344A63b372eA78bb36AeE8df974581e05F4C6)",
+        "selectors": [
+          {
+            "selector": "0x15ebb987",
+            "reason": "Function signature could not be determined"
+          }
+        ]
+      },
+      {
+        "facetAddress": "0x54e9cF3dE7986782889ab5E6FC8Ff126eD03B63a",
+        "facetName": "Unknown Facet (0x54e9cF3dE7986782889ab5E6FC8Ff126eD03B63a)",
+        "selectors": [
+          {
+            "selector": "0x80cc086b",
+            "reason": "Function signature could not be determined"
+          }
+        ]
+      },
+      {
+        "facetAddress": "0xF0F5E67EbDB2AD1f58450c068B9De57f35589D12",
+        "facetName": "Unknown Facet (0xF0F5E67EbDB2AD1f58450c068B9De57f35589D12)",
+        "selectors": [
+          {
+            "selector": "0xde6b1356",
+            "reason": "Function signature could not be determined"
+          }
+        ]
+      },
+      {
+        "facetAddress": "0xf5e0330d72422B1BDefBDd9f0fB3768DaEbfb1b8",
+        "facetName": "Unknown Facet (0xf5e0330d72422B1BDefBDd9f0fB3768DaEbfb1b8)",
+        "selectors": [
+          {
+            "selector": "0xd28baa8c",
+            "reason": "Function signature could not be determined"
+          }
+        ]
+      }
+    ]
+  },
+  "comparisonAnalysis": {
+    "matchedSelectors": 151,
+    "unmatchedSelectors": 0,
+    "discrepancies": []
+  }
+}
