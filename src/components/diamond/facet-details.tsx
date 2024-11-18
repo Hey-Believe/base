@@ -60,15 +60,27 @@ interface FacetDetailsProps {
 }
 
 export function FacetDetails({ facet }: FacetDetailsProps) {
+  const [copiedAddress, setCopiedAddress] = useState<string | null>(null)
   const [copiedSelector, setCopiedSelector] = useState<string | null>(null)
 
-  const handleCopySelector = (selector: string) => {
+  const handleCopyAddress = (address: string, e?: React.MouseEvent) => {
+    e?.stopPropagation()
+    navigator.clipboard.writeText(address)
+    setCopiedAddress(address)
+    setTimeout(() => setCopiedAddress(null), 2000)
+  }
+
+  const handleCopySelector = (selector: string, e?: React.MouseEvent) => {
+    e?.stopPropagation()
     navigator.clipboard.writeText(selector)
     setCopiedSelector(selector)
     setTimeout(() => setCopiedSelector(null), 2000)
   }
 
+  console.log('Facet:', facet)
+
   if (!facet) {
+    console.log('Rendering empty state')
     return (
       <Card className="h-full flex items-center justify-center bg-white dark:bg-zinc-900">
         <motion.div
@@ -76,13 +88,19 @@ export function FacetDetails({ facet }: FacetDetailsProps) {
           animate={{ opacity: 1, y: 0 }}
           className="text-center p-8"
         >
-          <div className="relative w-[400px] h-[300px] mx-auto mb-6">
+          <div className="relative w-[400px] h-[300px] mx-auto mb-6 border border-zinc-200 dark:border-zinc-800 rounded-lg overflow-hidden bg-zinc-50 dark:bg-zinc-800/50">
             <Image
               src="/sleepingcate.gif"
               alt="Select a facet"
               fill
               className="object-contain"
               priority
+              onError={(e) => {
+                console.error('Failed to load image:', e)
+              }}
+              onLoad={() => {
+                console.log('Image loaded successfully')
+              }}
             />
           </div>
           <h3 className="text-xl font-medium text-zinc-800 dark:text-zinc-200 mb-2">
@@ -110,11 +128,11 @@ export function FacetDetails({ facet }: FacetDetailsProps) {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <button
-                    onClick={() => handleCopySelector(facet.address)}
+                    onClick={(e) => handleCopyAddress(facet.address, e)}
                     className="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300"
                   >
                     <span className="font-mono">{facet.address}</span>
-                    {copiedSelector === facet.address ? (
+                    {copiedAddress === facet.address ? (
                       <CheckCircle2 className="h-4 w-4 text-emerald-500" />
                     ) : (
                       <Copy className="h-4 w-4" />
