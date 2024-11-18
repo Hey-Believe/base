@@ -146,12 +146,12 @@ export default function DiamondInfoPage() {
   }))
 
   return (
-    <div className="h-screen flex flex-col bg-gradient-to-b from-zinc-50/50 to-white dark:from-black dark:to-zinc-900/50">
+    <div className="h-screen flex flex-col bg-[#fafafa] dark:bg-[#111111]">
       {/* Fixed Header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="flex-none p-6 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl"
+        className="flex-none p-6 bg-white dark:bg-black border-b border-[#eaeaea] dark:border-[#333333]"
       >
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-2.5">
@@ -162,7 +162,7 @@ export default function DiamondInfoPage() {
       </motion.div>
 
       {/* Main Content */}
-      <div className="flex-1 max-w-7xl mx-auto p-6 overflow-hidden">
+      <div className="flex-1 max-w-7xl mx-auto w-full p-6 overflow-hidden">
         {error ? (
           <Card className="p-4 text-red-500 bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-800">
             {error}
