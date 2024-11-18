@@ -10,6 +10,7 @@ import {
   Sparkles,
   AlertCircle,
   GitFork,
+  Package,
 } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
@@ -150,38 +151,12 @@ export default function DiamondInfoPage() {
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="flex-none p-6 border-b border-zinc-200/50 dark:border-zinc-800/50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl"
+        className="flex-none p-6 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Diamond className="h-6 w-6 text-primary" />
-              <h1 className="text-2xl font-semibold tracking-tight">
-                Diamond Inspector
-              </h1>
-            </div>
-            <div className="flex items-center gap-2">
-              <Button
-                variant="outline"
-                size="sm"
-                className="gap-2"
-                onClick={() => {
-                  navigator.clipboard.writeText(
-                    diamondData?.metadata.diamondAddress || '',
-                  )
-                  setCopied(true)
-                  setTimeout(() => setCopied(false), 2000)
-                }}
-              >
-                {copied ? (
-                  <CheckCircle2 className="h-4 w-4 text-green-500" />
-                ) : (
-                  <Copy className="h-4 w-4" />
-                )}
-                {diamondData?.metadata.diamondAddress.slice(0, 6)}...
-                {diamondData?.metadata.diamondAddress.slice(-4)}
-              </Button>
-            </div>
+          <div className="flex items-center gap-2.5">
+            <Package className="w-6 h-6" />
+            <h1 className="text-xl font-medium tracking-tight">dop-stick</h1>
           </div>
         </div>
       </motion.div>
