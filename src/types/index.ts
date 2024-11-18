@@ -12,4 +12,5 @@ export interface Project {
     logo: string
     license: string
     repoUrl: string
+    route: string
 } 

@@ -6,7 +6,8 @@
       "description": "Source control tooling for versionable, upgradeable Diamonds (EIP-2535)",
       "logo": "/dop-stick-image.svg",
       "license": "MIT",
-      "repoUrl": "https://github.com/Hey-Believe/dop-stick"
+      "repoUrl": "https://github.com/Hey-Believe/dop-stick",
+      "route": "/dop-stick"
     }
   ]
 }
