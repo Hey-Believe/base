@@ -37,6 +37,8 @@ import {
   PieChart,
   Pie,
   Cell,
+  RadialBarChart,
+  RadialBar,
 } from 'recharts'
 import { useRouter } from 'next/navigation'
 import {
@@ -611,28 +613,63 @@ export default function AnalysisPage() {
 
                 <div className="h-[300px]">
                   <ResponsiveContainer width="100%" height="100%">
-                    <PieChart>
-                      <Pie
-                        data={data?.accessPatterns}
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={60}
-                        outerRadius={80}
-                        fill="#8884d8"
-                        paddingAngle={5}
+                    <RadialBarChart
+                      cx="50%"
+                      cy="50%"
+                      innerRadius="20%"
+                      outerRadius="90%"
+                      barSize={20}
+                      data={data?.accessPatterns.map((item, index) => ({
+                        name: item.name,
+                        value: item.value,
+                        fill: COLORS[index % COLORS.length],
+                      }))}
+                    >
+                      <RadialBar
+                        label={{
+                          position: 'insideStart',
+                          fill: '#fff',
+                          fontSize: 12,
+                        }}
+                        background
                         dataKey="value"
-                      >
-                        {data?.accessPatterns.map((entry, index) => (
-                          <Cell
-                            key={`cell-${index}`}
-                            fill={COLORS[index % COLORS.length]}
-                          />
-                        ))}
-                      </Pie>
-                      <Tooltip />
-                      <Legend />
-                    </PieChart>
+                      />
+                      <Tooltip
+                        formatter={(value, name) => [
+                          `${value} functions`,
+                          name,
+                        ]}
+                      />
+                      <Legend
+                        iconSize={10}
+                        layout="vertical"
+                        verticalAlign="middle"
+                        align="right"
+                      />
+                    </RadialBarChart>
                   </ResponsiveContainer>
+                </div>
+
+                {/* Add summary stats below the chart */}
+                <div className="grid grid-cols-2 gap-4 pt-4">
+                  <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-900">
+                    <p className="text-sm text-[#666666] dark:text-[#888888]">
+                      Protected Functions
+                    </p>
+                    <p className="text-2xl font-bold">
+                      {data?.accessPatterns.find((p) => p.name === 'Protected')
+                        ?.value || 0}
+                    </p>
+                  </div>
+                  <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-900">
+                    <p className="text-sm text-[#666666] dark:text-[#888888]">
+                      Public Functions
+                    </p>
+                    <p className="text-2xl font-bold">
+                      {data?.accessPatterns.find((p) => p.name === 'Public')
+                        ?.value || 0}
+                    </p>
+                  </div>
                 </div>
               </div>
             </Card>
