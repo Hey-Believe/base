@@ -63,10 +63,12 @@ body {
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  :root {
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
   }
-  body {
-    @apply bg-background text-foreground;
+  .dark {
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
   }
 }
