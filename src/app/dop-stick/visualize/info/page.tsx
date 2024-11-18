@@ -1,19 +1,19 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Copy, CheckCircle2 } from 'lucide-react'
+import { Copy, CheckCircle2, Diamond, Code2, Activity } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
 import { FacetsList } from '@/components/diamond/facets-list'
 import {
-  FacetDetails as FacetDetailsComponent,
+  FacetDetails,
   FacetDetailsType,
   FoundSelector,
   UnknownSelector,
 } from '@/components/diamond/facet-details'
 import { useRouter } from 'next/navigation'
 
-// Types
 interface DiamondInfo {
   infoHash: string
   metadata: {
@@ -40,7 +40,7 @@ export default function DiamondInfoPage() {
   const [activeTab, setActiveTab] = useState<
     'overview' | 'facets' | 'analysis'
   >('facets')
-  const [selectedFacet, setSelectedFacet] = useState<string>()
+  const [selectedFacet, setSelectedFacet] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
   const [diamondData, setDiamondData] = useState<DiamondInfo | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -135,104 +135,144 @@ export default function DiamondInfoPage() {
   }))
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Top Section */}
-      <div className="border-b">
-        <div className="max-w-[1200px] mx-auto px-4 py-6">
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <h1 className="text-xl font-mono font-medium">
-                Diamond Info
-                <span className="ml-2 text-gray-500 font-normal">MTczMTg3</span>
+    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+      {/* Header Section */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="p-6 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <Diamond className="h-6 w-6 text-primary" />
+              <h1 className="text-2xl font-semibold tracking-tight">
+                Diamond Inspector
               </h1>
-              <div className="mt-2 flex items-center gap-2 text-sm text-gray-600">
-                <span>testnet</span>
-                <span>•</span>
-                <span>Updated 2024-11-17</span>
-              </div>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
               <Button
                 variant="outline"
-                className="font-mono text-sm"
-                onClick={() =>
-                  copyToClipboard('0x535d3BC47ef036336e05f2B33ECA4222F13a344a')
-                }
+                size="sm"
+                className="gap-2"
+                onClick={() => {
+                  navigator.clipboard.writeText(
+                    diamondData?.metadata.diamondAddress || '',
+                  )
+                  setCopied(true)
+                  setTimeout(() => setCopied(false), 2000)
+                }}
               >
                 {copied ? (
-                  <CheckCircle2 className="w-4 h-4 mr-2" />
+                  <CheckCircle2 className="h-4 w-4 text-green-500" />
                 ) : (
-                  <Copy className="w-4 h-4 mr-2" />
+                  <Copy className="h-4 w-4" />
                 )}
-                0x535d...344a
+                {diamondData?.metadata.diamondAddress.slice(0, 6)}...
+                {diamondData?.metadata.diamondAddress.slice(-4)}
               </Button>
             </div>
           </div>
-
-          {/* Statistics */}
-          <div className="flex gap-6 text-sm">
-            <div>
-              <span className="text-gray-600">Total Facets</span>
-              <span className="ml-2 font-medium">35</span>
-            </div>
-            <div>
-              <span className="text-gray-600">Total Selectors</span>
-              <span className="ml-2 font-medium">151</span>
-            </div>
-            <div>
-              <span className="text-gray-600">Unknown Selectors</span>
-              <span className="ml-2 font-medium">6</span>
-            </div>
-          </div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Navigation Tabs */}
-      <div className="border-b">
-        <div className="max-w-[1200px] mx-auto px-4">
-          <nav className="flex -mb-px">
-            {(['overview', 'facets', 'analysis'] as const).map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-4 py-3 font-medium text-sm border-b-2 transition-colors
-                  ${
-                    activeTab === tab
-                      ? 'border-black text-black'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                  }`}
-              >
-                {tab.charAt(0).toUpperCase() + tab.slice(1)}
-              </button>
-            ))}
-          </nav>
-        </div>
-      </div>
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto p-6">
+        {error ? (
+          <Card className="p-4 text-red-500 bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-800">
+            {error}
+          </Card>
+        ) : diamondData ? (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Stats Cards */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="col-span-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+            >
+              <StatCard
+                icon={<Diamond className="h-5 w-5" />}
+                label="Total Facets"
+                value={diamondData.statistics.totalFacets}
+              />
+              <StatCard
+                icon={<Code2 className="h-5 w-5" />}
+                label="Total Selectors"
+                value={diamondData.statistics.totalSelectors}
+              />
+              <StatCard
+                icon={<Activity className="h-5 w-5" />}
+                label="Known Selectors"
+                value={
+                  diamondData.statistics.totalSelectors -
+                  diamondData.statistics.totalUnknownSelectors
+                }
+              />
+              <StatCard
+                icon={<Code2 className="h-5 w-5" />}
+                label="Unknown Selectors"
+                value={diamondData.statistics.totalUnknownSelectors}
+              />
+            </motion.div>
 
-      {/* Content Area */}
-      <main className="max-w-[1200px] mx-auto px-4 py-6">
-        {activeTab === 'facets' && (
-          <div className="flex gap-6">
             {/* Facets List */}
-            <div className="w-80 border-r pr-6">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="lg:col-span-4 xl:col-span-3"
+            >
               <FacetsList
-                facets={facetsList}
+                facets={diamondData.facets}
                 selectedFacet={selectedFacet}
                 onSelectFacet={setSelectedFacet}
               />
-            </div>
+            </motion.div>
 
             {/* Facet Details */}
-            <div className="flex-1">
-              <FacetDetailsComponent
-                facet={
-                  selectedFacet ? diamondData?.facets[selectedFacet] : undefined
-                }
-              />
-            </div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="lg:col-span-8 xl:col-span-9"
+            >
+              {selectedFacet && diamondData ? (
+                <FacetDetails facet={diamondData.facets[selectedFacet]} />
+              ) : (
+                <Card className="p-8 text-center text-muted-foreground">
+                  <Diamond className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                  <h3 className="text-lg font-medium mb-2">Select a Facet</h3>
+                  <p>Choose a facet from the list to view its details</p>
+                </Card>
+              )}
+            </motion.div>
+          </div>
+        ) : (
+          <div className="flex items-center justify-center min-h-[60vh]">
+            <div className="animate-pulse">Loading...</div>
           </div>
         )}
-      </main>
+      </div>
     </div>
+  )
+}
+
+function StatCard({
+  icon,
+  label,
+  value,
+}: {
+  icon: React.ReactNode
+  label: string
+  value: number
+}) {
+  return (
+    <Card className="p-4">
+      <div className="flex items-center gap-3">
+        <div className="p-2 bg-primary/10 rounded-lg text-primary">{icon}</div>
+        <div>
+          <p className="text-sm text-muted-foreground">{label}</p>
+          <p className="text-2xl font-semibold">{value}</p>
+        </div>
+      </div>
+    </Card>
   )
 }

@@ -1,21 +1,16 @@
 'use client'
 
+import { motion } from 'framer-motion'
+import { Card } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Search, Diamond } from 'lucide-react'
 import { useState } from 'react'
-import { Search, CheckCircle } from 'lucide-react'
-
-interface Facet {
-  name: string
-  address: string
-  statistics: {
-    totalSelectors: number
-    foundSelectors: number
-    unknownSelectors: number
-  }
-}
+import { cn } from '@/lib/utils'
+import { FacetDetailsType } from './facet-details'
 
 interface FacetsListProps {
-  facets: Facet[]
-  selectedFacet?: string
+  facets: { [address: string]: FacetDetailsType }
+  selectedFacet: string | null
   onSelectFacet: (address: string) => void
 }
 
@@ -24,77 +19,68 @@ export function FacetsList({
   selectedFacet,
   onSelectFacet,
 }: FacetsListProps) {
-  const [searchQuery, setSearchQuery] = useState('')
+  const [search, setSearch] = useState('')
 
-  const filteredFacets = facets.filter(
-    (facet) =>
-      facet.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      facet.address.toLowerCase().includes(searchQuery.toLowerCase()),
-  )
+  const facetsList = Object.entries(facets)
+    .map(([address, facet]) => ({
+      address,
+      name: facet.name,
+      statistics: facet.statistics,
+    }))
+    .filter(
+      (facet) =>
+        facet.name.toLowerCase().includes(search.toLowerCase()) ||
+        facet.address.toLowerCase().includes(search.toLowerCase()),
+    )
 
   return (
-    <div>
-      {/* Search */}
-      <div className="relative mb-4">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-        <input
-          type="text"
-          placeholder="Search facets..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full pl-9 pr-4 py-2 text-sm border rounded-md 
-            focus:outline-none focus:ring-1 focus:ring-black
-            placeholder:text-gray-400"
-        />
+    <Card className="h-full">
+      <div className="p-4 border-b">
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <Input
+            placeholder="Search facets..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="pl-9"
+          />
+        </div>
       </div>
-
-      {/* Facets List */}
-      <div className="space-y-1">
-        {filteredFacets.map((facet) => (
-          <button
+      <div className="divide-y divide-border overflow-auto max-h-[calc(100vh-16rem)]">
+        {facetsList.map((facet, index) => (
+          <motion.div
             key={facet.address}
-            onClick={() => onSelectFacet(facet.address)}
-            className={`w-full text-left px-3 py-2 rounded-md transition-colors
-              ${
-                selectedFacet === facet.address
-                  ? 'bg-gray-100'
-                  : 'hover:bg-gray-50'
-              }`}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.05 }}
           >
-            <div className="flex items-center justify-between">
-              <div className="min-w-0">
-                <div className="flex items-center gap-2">
-                  <span className="font-medium truncate">
-                    {facet.name.startsWith('Unknown')
-                      ? 'Unknown Facet'
-                      : facet.name}
-                  </span>
-                  {!facet.name.startsWith('Unknown') && (
-                    <CheckCircle className="w-3 h-3 text-green-500" />
-                  )}
-                </div>
-                <div className="text-xs font-mono text-gray-500 truncate">
-                  {facet.address}
-                </div>
-              </div>
-              <div className="text-xs text-gray-500">
-                {facet.statistics.totalSelectors}
-              </div>
-            </div>
-
-            {/* Quick Stats */}
-            <div className="mt-1 flex items-center gap-3 text-xs text-gray-500">
-              <span>{facet.statistics.foundSelectors} found</span>
-              {facet.statistics.unknownSelectors > 0 && (
-                <>
-                  <span>•</span>
-                  <span>{facet.statistics.unknownSelectors} unknown</span>
-                </>
+            <button
+              onClick={() => onSelectFacet(facet.address)}
+              className={cn(
+                'w-full text-left p-4 hover:bg-muted/50 transition-colors',
+                selectedFacet === facet.address && 'bg-muted',
               )}
-            </div>
-          </button>
+            >
+              <div className="flex items-center gap-3">
+                <Diamond className="h-4 w-4 text-primary" />
+                <div>
+                  <h3 className="font-medium truncate">{facet.name}</h3>
+                  <p className="text-sm text-muted-foreground truncate">
+                    {facet.address}
+                  </p>
+                </div>
+              </div>
+              <div className="mt-2 flex gap-4 text-sm text-muted-foreground">
+                <span>{facet.statistics.totalSelectors} selectors</span>
+                <span>•</span>
+                <span>{facet.statistics.foundSelectors} found</span>
+                <span>•</span>
+                <span>{facet.statistics.unknownSelectors} unknown</span>
+              </div>
+            </button>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </Card>
   )
 }
