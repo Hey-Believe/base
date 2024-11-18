@@ -38,6 +38,7 @@ interface DiamondInfo {
     totalSelectors: number
     totalUnknownSelectors: number
     uniqueAddresses: number
+    uniqueFacets: number
   }
   facets: {
     [address: string]: FacetDetailsType
@@ -75,7 +76,11 @@ export default function DiamondInfoPage() {
       const transformedData: DiamondInfo = {
         infoHash: data.infoHash,
         metadata: data.metadata,
-        statistics: data.statistics,
+        statistics: {
+          ...data.statistics,
+          uniqueFacets: new Set(data.facets.map((facet: any) => facet.name))
+            .size,
+        },
         facets: {},
       }
 

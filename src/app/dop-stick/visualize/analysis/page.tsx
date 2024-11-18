@@ -65,6 +65,7 @@ interface DiamondAnalytics {
   }
   statistics: {
     totalFacets: number
+    uniqueFacets: number
     totalSelectors: number
     totalUnknownSelectors: number
   }
@@ -249,10 +250,15 @@ function transformData(rawData: any): DiamondAnalytics {
 
   const averageSize: number = totalFunctions / facetSizes.length
 
+  // Calculate unique facets count
+  const uniqueFacets = new Set(rawData.facets.map((facet: any) => facet.name))
+    .size
+
   return {
     functionDistribution,
     statistics: {
       totalFacets: rawData.facets.length,
+      uniqueFacets: uniqueFacets,
       totalSelectors: rawData.statistics.totalSelectors,
       totalUnknownSelectors: rawData.statistics.totalUnknownSelectors,
     },
@@ -497,9 +503,14 @@ export default function AnalysisPage() {
                       <p className="text-sm text-[#666666] dark:text-[#888888]">
                         Total Facets
                       </p>
-                      <p className="text-3xl font-bold tabular-nums">
-                        {data?.statistics.totalFacets}
-                      </p>
+                      <div className="flex items-baseline gap-2">
+                        <p className="text-3xl font-bold tabular-nums">
+                          {data?.statistics.totalFacets}
+                        </p>
+                        <span className="text-sm text-[#666666] dark:text-[#888888]">
+                          ({data?.statistics.uniqueFacets} unique)
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>

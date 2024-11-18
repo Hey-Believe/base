@@ -6,6 +6,7 @@ export interface FacetSize {
 export interface DiamondAnalytics {
     statistics: {
         totalFacets: number;
+        uniqueFacets: number;
         totalSelectors: number;
         totalUnknownSelectors: number;
     };
