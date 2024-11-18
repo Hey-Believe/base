@@ -1,17 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import {
-  Copy,
-  CheckCircle2,
-  Diamond,
-  Code2,
-  Activity,
-  Sparkles,
-  AlertCircle,
-  GitFork,
-  Package,
-} from 'lucide-react'
+import { Copy, Diamond, Activity, Package } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -45,7 +35,7 @@ interface DiamondInfo {
   }
 }
 
-type TransformedSelector = FoundSelector | UnknownSelector
+// type TransformedSelector = FoundSelector | UnknownSelector
 
 export default function DiamondInfoPage() {
   const router = useRouter()
