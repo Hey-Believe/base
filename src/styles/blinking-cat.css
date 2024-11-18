@@ -1,0 +1,78 @@
+/* src/styles/blinking-cat.css */
+
+@keyframes blink {
+  0%,
+  5%,
+  95%,
+  100% {
+    transform: scaleY(1);
+  }
+  45%,
+  55% {
+    transform: scaleY(0.1);
+  }
+}
+
+.blinking-cat {
+  position: relative;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background-color: #f1f5f9;
+  border-radius: 50%;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1),
+    /* Inner shadow for depth */ 0 2px 4px rgba(0, 0, 0, 0.1),
+    /* Subtle drop shadow */ 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* Additional elevation */
+  background-image: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+}
+
+.blinking-cat::before,
+.blinking-cat::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background-color: #000000;
+  border-radius: 50%;
+  animation: blink 6s infinite;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.blinking-cat::before {
+  left: 7px;
+}
+
+.blinking-cat::after {
+  right: 7px;
+}
+
+/* Pointy natural cat ears */
+.blinking-cat .ear {
+  position: absolute;
+  top: -12px;
+  width: 12px;
+  height: 16px;
+  background-color: #f1f5f9;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blinking-cat .ear.left {
+  left: 4px;
+  transform: rotate(-15deg);
+}
+
+.blinking-cat .ear.right {
+  right: 4px;
+  transform: rotate(15deg);
+}
+
+/* Add z-index to ensure features are visible */
+.blinking-cat .ear {
+  z-index: 10;
+}
