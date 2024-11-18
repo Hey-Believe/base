@@ -108,6 +108,11 @@ export default function DiamondInfoPage() {
     }
   }, [selectedFacet, diamondData])
 
+  const handleAnalysisClick = () => {
+    // The data is already in sessionStorage, so we can just navigate
+    router.push('/dop-stick/visualize/analysis')
+  }
+
   if (error) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -285,6 +290,7 @@ export default function DiamondInfoPage() {
                     {/* Analysis Button */}
                     <Button
                       size="sm"
+                      onClick={handleAnalysisClick}
                       className="ml-6 gap-2 bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90 transition-all duration-200"
                     >
                       <Activity className="h-4 w-4" />
