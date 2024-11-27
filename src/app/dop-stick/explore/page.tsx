@@ -191,7 +191,7 @@ export default function Component() {
 
         <div className="ml-auto flex items-center gap-6">
           <Link
-            href="/docs"
+            href="/dop-stick/docs"
             className="flex items-center gap-2 text-sm text-[#666666] hover:text-[#000000] dark:text-[#888888] dark:hover:text-[#ffffff] transition-colors"
           >
             <BookOpen className="w-4 h-4" />

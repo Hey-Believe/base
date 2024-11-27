@@ -7,7 +7,7 @@ import { BackgroundAnimation } from '@/components/dop-stick/home-background-anim
 import { motion } from 'framer-motion'
 import { ScrambleText } from '@/components/dop-stick/scramble-text'
 import { BlinkingCursor } from '@/components/dop-stick/blinking-cursor'
-import { Package, Copy } from 'lucide-react'
+import { Package, Copy, Heart } from 'lucide-react'
 import { useState } from 'react'
 
 type PackageManager = 'pnpm' | 'npm' | 'yarn'
@@ -143,11 +143,26 @@ export default function Page() {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.6, duration: 0.5 }}
                 >
-                  <p className="text-sm">created by</p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-sm text-muted-foreground">with</p>
+                    <Heart
+                      className="w-4 h-4 text-red-500 animate-pulse hover:scale-110 
+                                 transition-transform duration-200 cursor-pointer
+                                 hover:text-red-600 dark:hover:text-red-400"
+                      fill="currentColor"
+                    />
+                    <p className="text-sm text-muted-foreground">by</p>
+                  </div>
                   <div className="flex items-center">
-                    <span className="text-2xl font-bold tracking-tight font-mono transform hover:scale-105 transition-transform duration-200">
+                    <Link
+                      href="https://github.com/hey-believe"
+                      target="_blank"
+                      className="text-2xl font-bold tracking-tight font-mono 
+                                 transform hover:scale-105 transition-transform duration-200
+                                 hover:text-foreground"
+                    >
                       Hey Believe!
-                    </span>
+                    </Link>
                   </div>
                 </motion.div>
               </div>
