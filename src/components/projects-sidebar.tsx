@@ -47,45 +47,61 @@ export function ProjectsSidebar({ isOpen, onClose }: ProjectsSidebarProps) {
       {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 transition-opacity"
+          className="fixed inset-0 bg-black/50 dark:bg-black/70 z-40 transition-opacity"
           onClick={onClose}
         />
       )}
 
       {/* Sidebar */}
       <div
-        className={`fixed right-0 top-0 h-full w-[480px] max-w-[100vw] bg-white z-50 
-                      transform transition-transform duration-300 ease-in-out
-                      ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`fixed right-0 top-0 h-full w-[480px] max-w-[100vw] 
+                   bg-white dark:bg-zinc-900 z-50 
+                   transform transition-transform duration-300 ease-in-out
+                   border-l border-zinc-200 dark:border-zinc-800
+                   ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b">
-            <h2 className="text-xl font-mono font-bold">
+          <div
+            className="flex items-center justify-between p-6 
+                         border-b border-zinc-200 dark:border-zinc-800"
+          >
+            <h2
+              className="text-xl font-mono font-bold
+                          text-zinc-900 dark:text-zinc-100"
+            >
               Open Source Projects
             </h2>
             <button
               onClick={onClose}
-              className="p-1 hover:bg-gray-100 rounded-full transition-colors"
+              className="p-1 hover:bg-zinc-100 dark:hover:bg-zinc-800 
+                       rounded-full transition-colors"
             >
-              <X className="w-5 h-5" />
+              <X className="w-5 h-5 text-zinc-600 dark:text-zinc-400" />
             </button>
           </div>
 
           {/* Search Bar */}
-          <div className="p-4 border-b">
+          <div className="p-4 border-b border-zinc-200 dark:border-zinc-800">
             <div className="relative">
               <input
                 type="text"
                 placeholder="Search projects..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 bg-gray-50 border-2 border-gray-100 
+                className="w-full pl-10 pr-4 py-2 
+                         bg-zinc-50 dark:bg-zinc-800/50
+                         border-2 border-zinc-100 dark:border-zinc-700
                          rounded-lg outline-none font-mono text-sm
-                         focus:border-black transition-colors
-                         placeholder:text-gray-400"
+                         text-zinc-900 dark:text-zinc-100
+                         focus:border-zinc-900 dark:focus:border-zinc-500 
+                         transition-colors
+                         placeholder:text-zinc-400 dark:placeholder:text-zinc-500"
               />
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search
+                className="absolute left-3 top-1/2 transform -translate-y-1/2 
+                               w-4 h-4 text-zinc-400 dark:text-zinc-500"
+              />
             </div>
           </div>
 
@@ -99,11 +115,19 @@ export function ProjectsSidebar({ isOpen, onClose }: ProjectsSidebarProps) {
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center h-full text-center">
-                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
-                  <Search className="w-8 h-8 text-gray-400" />
+                <div
+                  className="w-16 h-16 bg-zinc-100 dark:bg-zinc-800 
+                              rounded-full flex items-center justify-center mb-4"
+                >
+                  <Search className="w-8 h-8 text-zinc-400 dark:text-zinc-500" />
                 </div>
-                <h3 className="font-mono font-bold mb-2">No projects found</h3>
-                <p className="text-sm text-gray-500 font-mono">
+                <h3
+                  className="font-mono font-bold mb-2 
+                              text-zinc-900 dark:text-zinc-100"
+                >
+                  No projects found
+                </h3>
+                <p className="text-sm text-zinc-500 dark:text-zinc-400 font-mono">
                   Try adjusting your search query
                 </p>
               </div>
