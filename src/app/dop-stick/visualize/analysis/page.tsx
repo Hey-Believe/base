@@ -408,576 +408,609 @@ export default function AnalysisPage() {
 
   return (
     <div className="min-h-screen bg-[#fafafa] dark:bg-[#111111]">
-      <header className="px-6 h-16 flex items-center bg-white dark:bg-black border-b border-[#eaeaea] dark:border-[#333333]">
-        <Link href="/" className="flex items-center gap-2.5">
-          <Package className="w-6 h-6" />
-          <span className="text-xl font-medium tracking-tight">dop-stick</span>
-        </Link>
-      </header>
-
-      {/* Hero Section */}
-      <div className="relative overflow-hidden border-b border-[#eaeaea] dark:border-[#333333] bg-white dark:bg-black">
-        <div className="max-w-7xl mx-auto px-6 py-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="space-y-8"
-          >
-            {/* Main Title */}
-            <div className="space-y-4">
-              <h1 className="text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400">
-                Contract Analysis
-              </h1>
-              <p className="text-xl text-[#666666] dark:text-[#888888] max-w-2xl">
-                Comprehensive insights and metrics for your Diamond contract
-                implementation.
-              </p>
-            </div>
-
-            {/* Key Metrics Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {/* Security Score */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="relative group"
-              >
-                <div className="p-6 rounded-lg border border-[#eaeaea] dark:border-[#333333] bg-white dark:bg-black hover:border-[#666666] dark:hover:border-[#666666] transition-colors">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-lg bg-emerald-50 dark:bg-emerald-500/10">
-                      <Shield className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-[#666666] dark:text-[#888888]">
-                        Security Score
-                      </p>
-                      <p className="text-3xl font-bold tabular-nums">
-                        {data?.securityMetrics.score}
-                        <span className="text-base font-normal text-[#666666] dark:text-[#888888]">
-                          %
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Function Count */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="relative group"
-              >
-                <div className="p-6 rounded-lg border border-[#eaeaea] dark:border-[#333333] bg-white dark:bg-black hover:border-[#666666] dark:hover:border-[#666666] transition-colors">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-lg bg-blue-50 dark:bg-blue-500/10">
-                      <Code2 className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-[#666666] dark:text-[#888888]">
-                        Total Functions
-                      </p>
-                      <p className="text-3xl font-bold tabular-nums">
-                        {data?.statistics.totalSelectors}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Facet Count */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="relative group"
-              >
-                <div className="p-6 rounded-lg border border-[#eaeaea] dark:border-[#333333] bg-white dark:bg-black hover:border-[#666666] dark:hover:border-[#666666] transition-colors">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-lg bg-purple-50 dark:bg-purple-500/10">
-                      <Boxes className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-[#666666] dark:text-[#888888]">
-                        Total Facets
-                      </p>
-                      <div className="flex items-baseline gap-2">
-                        <p className="text-3xl font-bold tabular-nums">
-                          {data?.statistics.totalFacets}
-                        </p>
-                        <span className="text-sm text-[#666666] dark:text-[#888888]">
-                          ({data?.statistics.uniqueFacets} unique)
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Complexity Score */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="relative group"
-              >
-                <div className="p-6 rounded-lg border border-[#eaeaea] dark:border-[#333333] bg-white dark:bg-black hover:border-[#666666] dark:hover:border-[#666666] transition-colors">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-lg bg-amber-50 dark:bg-amber-500/10">
-                      <Activity className="w-6 h-6 text-amber-600 dark:text-amber-400" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-[#666666] dark:text-[#888888]">
-                        Complexity
-                      </p>
-                      <p className="text-3xl font-bold tabular-nums">
-                        {data?.complexityMetrics.averageComplexity.toFixed(1)}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Quick Actions */}
-            <div className="flex items-center gap-4 pt-4">
-              <Button
-                variant="outline"
-                className="group hover:border-[#666666] dark:hover:border-[#666666]"
-              >
-                View Details
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </div>
-          </motion.div>
+      {/* Tiny branding */}
+      <div className="w-full flex justify-center mt-1 mb-1">
+        <div className="flex items-center gap-1 opacity-40 hover:opacity-100 transition-opacity">
+          <span className="text-[9px] tracking-tight text-[#666666] dark:text-[#888888]">
+            powered by
+          </span>
+          <div className="flex items-center gap-0.5">
+            <Package className="w-[9px] h-[9px]" />
+            <span className="text-[9px] tracking-tight">dop-stick</span>
+          </div>
         </div>
       </div>
 
-      {/* Report Sections */}
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <Section
-          title="Security Analysis"
-          description="Comprehensive security assessment of your contract"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <Card className="p-8 bg-white dark:bg-black border-dashed">
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <div className="space-y-1">
-                    <h3 className="text-lg font-semibold">Security Score</h3>
-                    <p className="text-sm text-[#666666] dark:text-[#888888]">
-                      Overall security assessment
-                    </p>
-                  </div>
-                  <div className="p-3 rounded-lg bg-emerald-50 dark:bg-emerald-500/10">
-                    <Shield className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                  </div>
+      <div className="max-w-screen-2xl mx-auto p-6">
+        <div className="space-y-6">
+          {/* Hero Section */}
+          <div className="relative overflow-hidden border-b border-[#eaeaea] dark:border-[#333333] bg-white dark:bg-black">
+            <div className="max-w-7xl mx-auto px-6 py-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="space-y-8"
+              >
+                {/* Main Title */}
+                <div className="space-y-4">
+                  <h1 className="text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400">
+                    Contract Analysis
+                  </h1>
+                  <p className="text-xl text-[#666666] dark:text-[#888888] max-w-2xl">
+                    Comprehensive insights and metrics for your Diamond contract
+                    implementation.
+                  </p>
                 </div>
 
-                <div className="relative pt-2">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-5xl font-bold tabular-nums">
-                      {data?.securityMetrics.score}
-                    </span>
-                    <SecurityBadge score={data?.securityMetrics.score || 0} />
-                  </div>
+                {/* Key Metrics Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {/* Security Score */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="relative group"
+                  >
+                    <div className="p-6 rounded-lg border border-[#eaeaea] dark:border-[#333333] bg-white dark:bg-black hover:border-[#666666] dark:hover:border-[#666666] transition-colors">
+                      <div className="flex items-center gap-4">
+                        <div className="p-3 rounded-lg bg-emerald-50 dark:bg-emerald-500/10">
+                          <Shield className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                        </div>
+                        <div>
+                          <p className="text-sm text-[#666666] dark:text-[#888888]">
+                            Security Score
+                          </p>
+                          <p className="text-3xl font-bold tabular-nums">
+                            {data?.securityMetrics.score}
+                            <span className="text-base font-normal text-[#666666] dark:text-[#888888]">
+                              %
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
 
-                  <div className="space-y-4 mt-8">
-                    <div className="flex items-center gap-2">
-                      <Badge
-                        variant={
-                          data?.securityMetrics.hasAccessControl
-                            ? 'success'
-                            : 'secondary'
-                        }
-                      >
-                        Access Control
-                      </Badge>
-                      <Badge
-                        variant={
-                          data?.securityMetrics.hasUpgradeMechanism
-                            ? 'success'
-                            : 'secondary'
-                        }
-                      >
-                        Upgrade Mechanism
-                      </Badge>
+                  {/* Function Count */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="relative group"
+                  >
+                    <div className="p-6 rounded-lg border border-[#eaeaea] dark:border-[#333333] bg-white dark:bg-black hover:border-[#666666] dark:hover:border-[#666666] transition-colors">
+                      <div className="flex items-center gap-4">
+                        <div className="p-3 rounded-lg bg-blue-50 dark:bg-blue-500/10">
+                          <Code2 className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                        </div>
+                        <div>
+                          <p className="text-sm text-[#666666] dark:text-[#888888]">
+                            Total Functions
+                          </p>
+                          <p className="text-3xl font-bold tabular-nums">
+                            {data?.statistics.totalSelectors}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Facet Count */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="relative group"
+                  >
+                    <div className="p-6 rounded-lg border border-[#eaeaea] dark:border-[#333333] bg-white dark:bg-black hover:border-[#666666] dark:hover:border-[#666666] transition-colors">
+                      <div className="flex items-center gap-4">
+                        <div className="p-3 rounded-lg bg-purple-50 dark:bg-purple-500/10">
+                          <Boxes className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                        </div>
+                        <div>
+                          <p className="text-sm text-[#666666] dark:text-[#888888]">
+                            Total Facets
+                          </p>
+                          <div className="flex items-baseline gap-2">
+                            <p className="text-3xl font-bold tabular-nums">
+                              {data?.statistics.totalFacets}
+                            </p>
+                            <span className="text-sm text-[#666666] dark:text-[#888888]">
+                              ({data?.statistics.uniqueFacets} unique)
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Complexity Score */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="relative group"
+                  >
+                    <div className="p-6 rounded-lg border border-[#eaeaea] dark:border-[#333333] bg-white dark:bg-black hover:border-[#666666] dark:hover:border-[#666666] transition-colors">
+                      <div className="flex items-center gap-4">
+                        <div className="p-3 rounded-lg bg-amber-50 dark:bg-amber-500/10">
+                          <Activity className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+                        </div>
+                        <div>
+                          <p className="text-sm text-[#666666] dark:text-[#888888]">
+                            Complexity
+                          </p>
+                          <p className="text-3xl font-bold tabular-nums">
+                            {data?.complexityMetrics.averageComplexity.toFixed(
+                              1,
+                            )}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Quick Actions */}
+                <div className="flex items-center gap-4 pt-4">
+                  <Button
+                    variant="outline"
+                    className="group hover:border-[#666666] dark:hover:border-[#666666]"
+                  >
+                    View Details
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Report Sections */}
+          <div className="max-w-7xl mx-auto px-6 py-12">
+            <Section
+              title="Security Analysis"
+              description="Comprehensive security assessment of your contract"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <Card className="p-8 bg-white dark:bg-black border-dashed">
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-1">
+                        <h3 className="text-lg font-semibold">
+                          Security Score
+                        </h3>
+                        <p className="text-sm text-[#666666] dark:text-[#888888]">
+                          Overall security assessment
+                        </p>
+                      </div>
+                      <div className="p-3 rounded-lg bg-emerald-50 dark:bg-emerald-500/10">
+                        <Shield className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                      </div>
                     </div>
 
-                    {data?.securityMetrics.riskFactors.map((factor, index) => (
-                      <SecurityInsight
-                        key={index}
-                        message={factor}
-                        severity={
-                          index === 0 ? 'high' : index === 1 ? 'medium' : 'low'
-                        }
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="p-8 bg-white dark:bg-black border-dashed">
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <div className="space-y-1">
-                    <h3 className="text-lg font-semibold">Access Patterns</h3>
-                    <p className="text-sm text-[#666666] dark:text-[#888888]">
-                      Function access control distribution
-                    </p>
-                  </div>
-                </div>
-
-                <div className="h-[300px]">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <RadialBarChart
-                      cx="50%"
-                      cy="50%"
-                      innerRadius="20%"
-                      outerRadius="90%"
-                      barSize={20}
-                      data={data?.accessPatterns.map((item, index) => ({
-                        name: item.name,
-                        value: item.value,
-                        fill: COLORS[index % COLORS.length],
-                      }))}
-                    >
-                      <RadialBar
-                        label={{
-                          position: 'insideStart',
-                          fill: '#fff',
-                          fontSize: 12,
-                        }}
-                        background
-                        dataKey="value"
-                      />
-                      <Tooltip
-                        formatter={(value, name) => [
-                          `${value} functions`,
-                          name,
-                        ]}
-                      />
-                      <Legend
-                        iconSize={10}
-                        layout="vertical"
-                        verticalAlign="middle"
-                        align="right"
-                      />
-                    </RadialBarChart>
-                  </ResponsiveContainer>
-                </div>
-
-                {/* Add summary stats below the chart */}
-                <div className="grid grid-cols-2 gap-4 pt-4">
-                  <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-900">
-                    <p className="text-sm text-[#666666] dark:text-[#888888]">
-                      Protected Functions
-                    </p>
-                    <p className="text-2xl font-bold">
-                      {data?.accessPatterns.find((p) => p.name === 'Protected')
-                        ?.value || 0}
-                    </p>
-                  </div>
-                  <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-900">
-                    <p className="text-sm text-[#666666] dark:text-[#888888]">
-                      Public Functions
-                    </p>
-                    <p className="text-2xl font-bold">
-                      {data?.accessPatterns.find((p) => p.name === 'Public')
-                        ?.value || 0}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </Section>
-
-        <Section
-          title="Function Analysis"
-          description="Detailed breakdown of function distribution and complexity"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <Card className="p-8 bg-white dark:bg-black border-dashed">
-              {/* Function Distribution */}
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <div className="space-y-1">
-                    <h3 className="text-lg font-semibold">
-                      Function Distribution
-                    </h3>
-                    <p className="text-sm text-[#666666] dark:text-[#888888]">
-                      Breakdown by function type
-                    </p>
-                  </div>
-                  <div className="p-3 rounded-lg bg-blue-50 dark:bg-blue-500/10">
-                    <Code2 className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                  </div>
-                </div>
-
-                <div className="h-[300px]">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <PieChart>
-                      <Pie
-                        data={data?.functionTypes}
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={60}
-                        outerRadius={80}
-                        fill="#8884d8"
-                        paddingAngle={5}
-                        dataKey="value"
-                      >
-                        {data?.functionTypes.map((entry, index) => (
-                          <Cell
-                            key={`cell-${index}`}
-                            fill={COLORS[index % COLORS.length]}
-                          />
-                        ))}
-                      </Pie>
-                      <Tooltip />
-                      <Legend />
-                    </PieChart>
-                  </ResponsiveContainer>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="p-8 bg-white dark:bg-black border-dashed">
-              {/* Complexity Analysis */}
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <div className="space-y-1">
-                    <h3 className="text-lg font-semibold">
-                      Complexity Analysis
-                    </h3>
-                    <p className="text-sm text-[#666666] dark:text-[#888888]">
-                      Parameter count distribution
-                    </p>
-                  </div>
-                  <div className="p-3 rounded-lg bg-purple-50 dark:bg-purple-500/10">
-                    <Activity className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-                  </div>
-                </div>
-
-                <div className="h-[300px]">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart data={data?.functionComplexity}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="params" />
-                      <YAxis />
-                      <Tooltip />
-                      <Area
-                        type="monotone"
-                        dataKey="count"
-                        fill="#818cf8"
-                        fillOpacity={0.2}
-                        stroke="#818cf8"
-                      />
-                    </AreaChart>
-                  </ResponsiveContainer>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </Section>
-
-        <Section
-          title="Event Analysis"
-          description="Event emission patterns and coverage"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Event Distribution Card */}
-            <Card className="p-8 bg-white dark:bg-black border-dashed">
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <div className="space-y-1">
-                    <h3 className="text-lg font-semibold">
-                      Event Distribution
-                    </h3>
-                    <p className="text-sm text-[#666666] dark:text-[#888888]">
-                      Events per facet
-                    </p>
-                  </div>
-                  <div className="p-3 rounded-lg bg-violet-50 dark:bg-violet-500/10">
-                    <Radio className="w-6 h-6 text-violet-600 dark:text-violet-400" />
-                  </div>
-                </div>
-
-                <div className="h-[300px]">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={data?.eventAnalysis}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis
-                        dataKey="name"
-                        angle={-45}
-                        textAnchor="end"
-                        height={70}
-                        interval={0}
-                        tick={{ fontSize: 12 }}
-                      />
-                      <YAxis />
-                      <Tooltip />
-                      <Bar
-                        dataKey="events"
-                        fill="#8b5cf6"
-                        radius={[4, 4, 0, 0]}
-                      />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-              </div>
-            </Card>
-
-            {/* Event Coverage Stats */}
-            <Card className="p-8 bg-white dark:bg-black border-dashed">
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <div className="space-y-1">
-                    <h3 className="text-lg font-semibold">Event Coverage</h3>
-                    <p className="text-sm text-[#666666] dark:text-[#888888]">
-                      Event emission statistics
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-6">
-                  <StatBox
-                    label="Total Events"
-                    value={
-                      data?.eventAnalysis.reduce(
-                        (sum, item) => sum + item.events,
-                        0,
-                      ) || 0
-                    }
-                    description="Across all facets"
-                  />
-                  <StatBox
-                    label="Facets with Events"
-                    value={data?.eventAnalysis.length || 0}
-                    description="Out of total facets"
-                  />
-                </div>
-
-                <div className="space-y-3">
-                  <h4 className="text-sm font-medium">Top Event Emitters</h4>
-                  {data?.eventAnalysis
-                    .sort((a, b) => b.events - a.events)
-                    .slice(0, 3)
-                    .map((item, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center justify-between p-3 rounded-lg bg-gray-50 dark:bg-gray-900"
-                      >
-                        <span className="text-sm font-medium">{item.name}</span>
-                        <Badge variant="secondary">{item.events} events</Badge>
+                    <div className="relative pt-2">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-5xl font-bold tabular-nums">
+                          {data?.securityMetrics.score}
+                        </span>
+                        <SecurityBadge
+                          score={data?.securityMetrics.score || 0}
+                        />
                       </div>
-                    ))}
-                </div>
+
+                      <div className="space-y-4 mt-8">
+                        <div className="flex items-center gap-2">
+                          <Badge
+                            variant={
+                              data?.securityMetrics.hasAccessControl
+                                ? 'success'
+                                : 'secondary'
+                            }
+                          >
+                            Access Control
+                          </Badge>
+                          <Badge
+                            variant={
+                              data?.securityMetrics.hasUpgradeMechanism
+                                ? 'success'
+                                : 'secondary'
+                            }
+                          >
+                            Upgrade Mechanism
+                          </Badge>
+                        </div>
+
+                        {data?.securityMetrics.riskFactors.map(
+                          (factor, index) => (
+                            <SecurityInsight
+                              key={index}
+                              message={factor}
+                              severity={
+                                index === 0
+                                  ? 'high'
+                                  : index === 1
+                                  ? 'medium'
+                                  : 'low'
+                              }
+                            />
+                          ),
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+
+                <Card className="p-8 bg-white dark:bg-black border-dashed">
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-1">
+                        <h3 className="text-lg font-semibold">
+                          Access Patterns
+                        </h3>
+                        <p className="text-sm text-[#666666] dark:text-[#888888]">
+                          Function access control distribution
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="h-[300px]">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <RadialBarChart
+                          cx="50%"
+                          cy="50%"
+                          innerRadius="20%"
+                          outerRadius="90%"
+                          barSize={20}
+                          data={data?.accessPatterns.map((item, index) => ({
+                            name: item.name,
+                            value: item.value,
+                            fill: COLORS[index % COLORS.length],
+                          }))}
+                        >
+                          <RadialBar
+                            label={{
+                              position: 'insideStart',
+                              fill: '#fff',
+                              fontSize: 12,
+                            }}
+                            background
+                            dataKey="value"
+                          />
+                          <Tooltip
+                            formatter={(value, name) => [
+                              `${value} functions`,
+                              name,
+                            ]}
+                          />
+                          <Legend
+                            iconSize={10}
+                            layout="vertical"
+                            verticalAlign="middle"
+                            align="right"
+                          />
+                        </RadialBarChart>
+                      </ResponsiveContainer>
+                    </div>
+
+                    {/* Add summary stats below the chart */}
+                    <div className="grid grid-cols-2 gap-4 pt-4">
+                      <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-900">
+                        <p className="text-sm text-[#666666] dark:text-[#888888]">
+                          Protected Functions
+                        </p>
+                        <p className="text-2xl font-bold">
+                          {data?.accessPatterns.find(
+                            (p) => p.name === 'Protected',
+                          )?.value || 0}
+                        </p>
+                      </div>
+                      <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-900">
+                        <p className="text-sm text-[#666666] dark:text-[#888888]">
+                          Public Functions
+                        </p>
+                        <p className="text-2xl font-bold">
+                          {data?.accessPatterns.find((p) => p.name === 'Public')
+                            ?.value || 0}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
               </div>
-            </Card>
-          </div>
-        </Section>
+            </Section>
 
-        {/* Facet Analysis */}
-        <Section
-          title="Facet Analysis"
-          description="Distribution of functions across facets"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Facet Size Distribution */}
-            <Card className="p-8 bg-white dark:bg-black border-dashed">
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <div className="space-y-1">
-                    <h3 className="text-lg font-semibold">
-                      Facet Size Distribution
-                    </h3>
-                    <p className="text-sm text-[#666666] dark:text-[#888888]">
-                      Functions per facet
-                    </p>
+            <Section
+              title="Function Analysis"
+              description="Detailed breakdown of function distribution and complexity"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <Card className="p-8 bg-white dark:bg-black border-dashed">
+                  {/* Function Distribution */}
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-1">
+                        <h3 className="text-lg font-semibold">
+                          Function Distribution
+                        </h3>
+                        <p className="text-sm text-[#666666] dark:text-[#888888]">
+                          Breakdown by function type
+                        </p>
+                      </div>
+                      <div className="p-3 rounded-lg bg-blue-50 dark:bg-blue-500/10">
+                        <Code2 className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                      </div>
+                    </div>
+
+                    <div className="h-[300px]">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <PieChart>
+                          <Pie
+                            data={data?.functionTypes}
+                            cx="50%"
+                            cy="50%"
+                            innerRadius={60}
+                            outerRadius={80}
+                            fill="#8884d8"
+                            paddingAngle={5}
+                            dataKey="value"
+                          >
+                            {data?.functionTypes.map((entry, index) => (
+                              <Cell
+                                key={`cell-${index}`}
+                                fill={COLORS[index % COLORS.length]}
+                              />
+                            ))}
+                          </Pie>
+                          <Tooltip />
+                          <Legend />
+                        </PieChart>
+                      </ResponsiveContainer>
+                    </div>
                   </div>
-                  <div className="p-3 rounded-lg bg-blue-50 dark:bg-blue-500/10">
-                    <Boxes className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                </Card>
+
+                <Card className="p-8 bg-white dark:bg-black border-dashed">
+                  {/* Complexity Analysis */}
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-1">
+                        <h3 className="text-lg font-semibold">
+                          Complexity Analysis
+                        </h3>
+                        <p className="text-sm text-[#666666] dark:text-[#888888]">
+                          Parameter count distribution
+                        </p>
+                      </div>
+                      <div className="p-3 rounded-lg bg-purple-50 dark:bg-purple-500/10">
+                        <Activity className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                      </div>
+                    </div>
+
+                    <div className="h-[300px]">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <AreaChart data={data?.functionComplexity}>
+                          <CartesianGrid strokeDasharray="3 3" />
+                          <XAxis dataKey="params" />
+                          <YAxis />
+                          <Tooltip />
+                          <Area
+                            type="monotone"
+                            dataKey="count"
+                            fill="#818cf8"
+                            fillOpacity={0.2}
+                            stroke="#818cf8"
+                          />
+                        </AreaChart>
+                      </ResponsiveContainer>
+                    </div>
                   </div>
-                </div>
+                </Card>
+              </div>
+            </Section>
 
-                <div className="grid grid-cols-3 gap-6">
-                  <StatBox
-                    label="Largest"
-                    value={data?.facetAnalysis.largest.count || 0}
-                    description={data?.facetAnalysis.largest.name || ''}
-                  />
-                  <StatBox
-                    label="Smallest"
-                    value={data?.facetAnalysis.smallest.count || 0}
-                    description={data?.facetAnalysis.smallest.name || ''}
-                  />
-                  <StatBox
-                    label="Average"
-                    value={data?.facetAnalysis.averageSize || 0}
-                    description="functions/facet"
-                  />
-                </div>
+            <Section
+              title="Event Analysis"
+              description="Event emission patterns and coverage"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Event Distribution Card */}
+                <Card className="p-8 bg-white dark:bg-black border-dashed">
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-1">
+                        <h3 className="text-lg font-semibold">
+                          Event Distribution
+                        </h3>
+                        <p className="text-sm text-[#666666] dark:text-[#888888]">
+                          Events per facet
+                        </p>
+                      </div>
+                      <div className="p-3 rounded-lg bg-violet-50 dark:bg-violet-500/10">
+                        <Radio className="w-6 h-6 text-violet-600 dark:text-violet-400" />
+                      </div>
+                    </div>
 
-                <div className="h-[300px]">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={data?.facetAnalysis.distribution}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis
-                        dataKey="name"
-                        angle={-45}
-                        textAnchor="end"
-                        height={70}
-                        interval={0}
-                        tick={{ fontSize: 12 }}
+                    <div className="h-[300px]">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <BarChart data={data?.eventAnalysis}>
+                          <CartesianGrid strokeDasharray="3 3" />
+                          <XAxis
+                            dataKey="name"
+                            angle={-45}
+                            textAnchor="end"
+                            height={70}
+                            interval={0}
+                            tick={{ fontSize: 12 }}
+                          />
+                          <YAxis />
+                          <Tooltip />
+                          <Bar
+                            dataKey="events"
+                            fill="#8b5cf6"
+                            radius={[4, 4, 0, 0]}
+                          />
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </div>
+                </Card>
+
+                {/* Event Coverage Stats */}
+                <Card className="p-8 bg-white dark:bg-black border-dashed">
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-1">
+                        <h3 className="text-lg font-semibold">
+                          Event Coverage
+                        </h3>
+                        <p className="text-sm text-[#666666] dark:text-[#888888]">
+                          Event emission statistics
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-6">
+                      <StatBox
+                        label="Total Events"
+                        value={
+                          data?.eventAnalysis.reduce(
+                            (sum, item) => sum + item.events,
+                            0,
+                          ) || 0
+                        }
+                        description="Across all facets"
                       />
-                      <YAxis />
-                      <Tooltip />
-                      <Bar
-                        dataKey="count"
-                        fill="#3b82f6"
-                        radius={[4, 4, 0, 0]}
+                      <StatBox
+                        label="Facets with Events"
+                        value={data?.eventAnalysis.length || 0}
+                        description="Out of total facets"
                       />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-              </div>
-            </Card>
+                    </div>
 
-            {/* Facet Complexity Map */}
-            <Card className="p-8 bg-white dark:bg-black border-dashed">
-              <div className="space-y-6">
-                <div className="flex items-center justify-between">
-                  <div className="space-y-1">
-                    <h3 className="text-lg font-semibold">
-                      Facet Complexity Map
-                    </h3>
-                    <p className="text-sm text-[#666666] dark:text-[#888888]">
-                      Size and complexity visualization
-                    </p>
+                    <div className="space-y-3">
+                      <h4 className="text-sm font-medium">
+                        Top Event Emitters
+                      </h4>
+                      {data?.eventAnalysis
+                        .sort((a, b) => b.events - a.events)
+                        .slice(0, 3)
+                        .map((item, index) => (
+                          <div
+                            key={index}
+                            className="flex items-center justify-between p-3 rounded-lg bg-gray-50 dark:bg-gray-900"
+                          >
+                            <span className="text-sm font-medium">
+                              {item.name}
+                            </span>
+                            <Badge variant="secondary">
+                              {item.events} events
+                            </Badge>
+                          </div>
+                        ))}
+                    </div>
                   </div>
-                </div>
-
-                <div className="h-[300px]">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <Treemap
-                      data={data?.facetAnalysis.distribution}
-                      dataKey="count"
-                      nameKey="name"
-                      content={<TreemapContent />}
-                    >
-                      <Tooltip />
-                    </Treemap>
-                  </ResponsiveContainer>
-                </div>
+                </Card>
               </div>
-            </Card>
+            </Section>
+
+            {/* Facet Analysis */}
+            <Section
+              title="Facet Analysis"
+              description="Distribution of functions across facets"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Facet Size Distribution */}
+                <Card className="p-8 bg-white dark:bg-black border-dashed">
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-1">
+                        <h3 className="text-lg font-semibold">
+                          Facet Size Distribution
+                        </h3>
+                        <p className="text-sm text-[#666666] dark:text-[#888888]">
+                          Functions per facet
+                        </p>
+                      </div>
+                      <div className="p-3 rounded-lg bg-blue-50 dark:bg-blue-500/10">
+                        <Boxes className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-6">
+                      <StatBox
+                        label="Largest"
+                        value={data?.facetAnalysis.largest.count || 0}
+                        description={data?.facetAnalysis.largest.name || ''}
+                      />
+                      <StatBox
+                        label="Smallest"
+                        value={data?.facetAnalysis.smallest.count || 0}
+                        description={data?.facetAnalysis.smallest.name || ''}
+                      />
+                      <StatBox
+                        label="Average"
+                        value={data?.facetAnalysis.averageSize || 0}
+                        description="functions/facet"
+                      />
+                    </div>
+
+                    <div className="h-[300px]">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <BarChart data={data?.facetAnalysis.distribution}>
+                          <CartesianGrid strokeDasharray="3 3" />
+                          <XAxis
+                            dataKey="name"
+                            angle={-45}
+                            textAnchor="end"
+                            height={70}
+                            interval={0}
+                            tick={{ fontSize: 12 }}
+                          />
+                          <YAxis />
+                          <Tooltip />
+                          <Bar
+                            dataKey="count"
+                            fill="#3b82f6"
+                            radius={[4, 4, 0, 0]}
+                          />
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </div>
+                </Card>
+
+                {/* Facet Complexity Map */}
+                <Card className="p-8 bg-white dark:bg-black border-dashed">
+                  <div className="space-y-6">
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-1">
+                        <h3 className="text-lg font-semibold">
+                          Facet Complexity Map
+                        </h3>
+                        <p className="text-sm text-[#666666] dark:text-[#888888]">
+                          Size and complexity visualization
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="h-[300px]">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <Treemap
+                          data={data?.facetAnalysis.distribution}
+                          dataKey="count"
+                          nameKey="name"
+                          content={<TreemapContent />}
+                        >
+                          <Tooltip />
+                        </Treemap>
+                      </ResponsiveContainer>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+            </Section>
           </div>
-        </Section>
+        </div>
       </div>
     </div>
   )

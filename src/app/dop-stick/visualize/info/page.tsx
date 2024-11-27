@@ -146,59 +146,53 @@ export default function DiamondInfoPage() {
   }))
 
   return (
-    <div className="h-screen flex flex-col bg-[#fafafa] dark:bg-[#111111]">
-      {/* Fixed Header */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="flex-none p-6 bg-white dark:bg-black border-b border-[#eaeaea] dark:border-[#333333]"
-      >
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-2.5">
-            <Package className="w-6 h-6" />
-            <h1 className="text-xl font-medium tracking-tight">dop-stick</h1>
+    <div className="h-screen flex flex-col bg-[#fafafa] dark:bg-[#111111] font-mono">
+      {/* Centered branding */}
+      <div className="w-full flex justify-center mt-1 mb-1">
+        <div className="flex items-center gap-1 opacity-40 hover:opacity-100 transition-opacity">
+          <span className="text-[9px] tracking-tight text-[#666666] dark:text-[#888888]">
+            powered by
+          </span>
+          <div className="flex items-center gap-0.5">
+            <Package className="w-[9px] h-[9px]" />
+            <span className="text-[9px] tracking-tight">dop-stick</span>
           </div>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Main Content */}
-      <div className="flex-1 max-w-7xl mx-auto w-full p-6 overflow-hidden">
+      <div className="flex-1 w-full px-6 sm:px-8 md:px-12 py-4 overflow-hidden">
         {error ? (
           <Card className="p-4 text-red-500 bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-800">
-            {error}
+            <p className="font-mono">{error}</p>
           </Card>
         ) : diamondData ? (
           <div className="h-full flex flex-col">
             {/* Stats Cards - Fixed */}
-            <div className="flex-none mb-4">
+            <div className="flex-none mb-8 max-w-[1400px] mx-auto w-full">
               <Card className="bg-[#fafafa] dark:bg-[#111111] border-[#eaeaea] dark:border-[#333333]">
-                <div className="grid grid-cols-[1fr,auto] gap-6 p-5">
+                <div className="grid grid-cols-[1fr,auto] gap-8 p-6 sm:p-8">
                   {/* Left side - Contract Info */}
                   <div className="px-4 py-3 rounded-lg bg-white dark:bg-black border border-dashed border-[#eaeaea] dark:border-[#333333]">
                     <div className="flex items-center gap-4">
-                      {/* Icon Container */}
-                      <div className="shrink-0 p-2 rounded-md bg-[#fafafa] dark:bg-[#111111] border border-dashed border-[#eaeaea] dark:border-[#333333]">
+                      <div className="shrink-0 p-2.5 rounded-md bg-[#fafafa] dark:bg-[#111111] border border-dashed border-[#eaeaea] dark:border-[#333333]">
                         <Diamond className="h-4.5 w-4.5 text-black dark:text-white" />
                       </div>
 
-                      {/* Contract Info */}
                       <div className="min-w-0 flex-1">
-                        {/* Title and Badge */}
                         <div className="flex items-center justify-between mb-1">
-                          <h3 className="text-xs font-medium text-black dark:text-white">
+                          <h3 className="text-xs font-medium tracking-tight text-black dark:text-white">
                             Diamond Contract
                           </h3>
                           <Badge
                             variant="outline"
-                            className="h-[18px] px-1.5 text-[10px] font-medium border-dashed border-[#eaeaea] dark:border-[#333333] text-[#666666] dark:text-[#888888]"
+                            className="h-[18px] px-1.5 text-[10px] tracking-tight border-dashed border-[#eaeaea] dark:border-[#333333] text-[#666666] dark:text-[#888888]"
                           >
                             {diamondData.metadata.network}
                           </Badge>
                         </div>
 
-                        {/* Address Container */}
                         <div className="flex items-center gap-2 group">
-                          <code className="text-[11px] font-mono text-[#666666] dark:text-[#888888] truncate">
+                          <code className="text-[11px] text-[#666666] dark:text-[#888888] truncate tracking-tight">
                             {diamondData.metadata.diamondAddress}
                           </code>
                           <button
@@ -221,31 +215,31 @@ export default function DiamondInfoPage() {
                     <div className="grid grid-cols-4 gap-6">
                       {/* Facets */}
                       <div className="flex flex-col justify-between px-4 py-3 h-[80px] rounded-lg bg-white dark:bg-black border border-dashed border-[#eaeaea] dark:border-[#333333]">
-                        <p className="text-[10px] font-medium uppercase tracking-wider text-[#666666] dark:text-[#888888]">
+                        <p className="text-[10px] tracking-tight uppercase text-[#666666] dark:text-[#888888]">
                           Facets
                         </p>
-                        <p className="text-xl font-semibold text-black dark:text-white tabular-nums">
+                        <p className="text-xl tracking-tight text-black dark:text-white tabular-nums">
                           {diamondData.statistics.totalFacets}
                         </p>
                       </div>
 
-                      {/* Total Functions */}
+                      {/* Functions */}
                       <div className="flex flex-col justify-between px-4 py-3 h-[80px] rounded-lg bg-white dark:bg-black border border-dashed border-[#eaeaea] dark:border-[#333333]">
-                        <p className="text-[10px] font-medium uppercase tracking-wider text-[#666666] dark:text-[#888888]">
+                        <p className="text-[10px] tracking-tight uppercase text-[#666666] dark:text-[#888888]">
                           Functions
                         </p>
-                        <p className="text-xl font-semibold text-black dark:text-white tabular-nums">
+                        <p className="text-xl tracking-tight text-black dark:text-white tabular-nums">
                           {diamondData.statistics.totalSelectors}
                         </p>
                       </div>
 
-                      {/* Known Functions */}
+                      {/* Known */}
                       <div className="flex flex-col justify-between px-4 py-3 h-[80px] rounded-lg bg-white dark:bg-black border border-dashed border-[#eaeaea] dark:border-[#333333]">
                         <div className="flex items-center gap-2">
-                          <p className="text-[10px] font-medium uppercase tracking-wider text-[#666666] dark:text-[#888888]">
+                          <p className="text-[10px] tracking-tight uppercase text-[#666666] dark:text-[#888888]">
                             Known
                           </p>
-                          <Badge className="bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-dashed border-emerald-200 dark:border-emerald-500/20 text-[10px] h-4 ml-auto">
+                          <Badge className="bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-dashed border-emerald-200 dark:border-emerald-500/20 text-[10px] h-4 ml-auto tracking-tight">
                             {Math.round(
                               ((diamondData.statistics.totalSelectors -
                                 diamondData.statistics.totalUnknownSelectors) /
@@ -255,19 +249,19 @@ export default function DiamondInfoPage() {
                             %
                           </Badge>
                         </div>
-                        <p className="text-xl font-semibold text-black dark:text-white tabular-nums">
+                        <p className="text-xl tracking-tight text-black dark:text-white tabular-nums">
                           {diamondData.statistics.totalSelectors -
                             diamondData.statistics.totalUnknownSelectors}
                         </p>
                       </div>
 
-                      {/* Unknown Functions */}
+                      {/* Unknown */}
                       <div className="flex flex-col justify-between px-4 py-3 h-[80px] rounded-lg bg-white dark:bg-black border border-dashed border-[#eaeaea] dark:border-[#333333]">
                         <div className="flex items-center gap-2">
-                          <p className="text-[10px] font-medium uppercase tracking-wider text-[#666666] dark:text-[#888888]">
+                          <p className="text-[10px] tracking-tight uppercase text-[#666666] dark:text-[#888888]">
                             Unknown
                           </p>
-                          <Badge className="bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 border-dashed border-amber-200 dark:border-amber-500/20 text-[10px] h-4 ml-auto">
+                          <Badge className="bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 border-dashed border-amber-200 dark:border-amber-500/20 text-[10px] h-4 ml-auto tracking-tight">
                             {Math.round(
                               (diamondData.statistics.totalUnknownSelectors /
                                 diamondData.statistics.totalSelectors) *
@@ -276,7 +270,7 @@ export default function DiamondInfoPage() {
                             %
                           </Badge>
                         </div>
-                        <p className="text-xl font-semibold text-black dark:text-white tabular-nums">
+                        <p className="text-xl tracking-tight text-black dark:text-white tabular-nums">
                           {diamondData.statistics.totalUnknownSelectors}
                         </p>
                       </div>
@@ -286,7 +280,7 @@ export default function DiamondInfoPage() {
                     <Button
                       size="sm"
                       onClick={handleAnalysisClick}
-                      className="ml-6 gap-2 bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90 transition-all duration-200"
+                      className="ml-6 gap-2 bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90 transition-all duration-200 tracking-tight"
                     >
                       <Activity className="h-4 w-4" />
                       Analysis
@@ -297,12 +291,12 @@ export default function DiamondInfoPage() {
             </div>
 
             {/* Scrollable Content Area */}
-            <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-0">
+            <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 min-h-0 max-w-[1400px] mx-auto w-full">
               {/* Facets List */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="lg:col-span-4 xl:col-span-3 overflow-hidden"
+                className="lg:col-span-5 xl:col-span-4 overflow-hidden"
               >
                 <FacetsList
                   facets={diamondData.facets}
@@ -315,7 +309,7 @@ export default function DiamondInfoPage() {
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="lg:col-span-8 xl:col-span-9 overflow-hidden"
+                className="lg:col-span-7 xl:col-span-8 overflow-hidden"
               >
                 {selectedFacet && diamondData ? (
                   <FacetDetails facet={diamondData.facets[selectedFacet]} />
@@ -327,7 +321,9 @@ export default function DiamondInfoPage() {
           </div>
         ) : (
           <div className="flex items-center justify-center min-h-[60vh]">
-            <div className="animate-pulse">Loading...</div>
+            <div className="animate-pulse font-mono tracking-tight">
+              Loading...
+            </div>
           </div>
         )}
       </div>
