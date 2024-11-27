@@ -9,7 +9,7 @@ export default function DocsLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen" suppressHydrationWarning>
       <Suspense
         fallback={
           <div className="w-72 bg-zinc-100 dark:bg-zinc-900 fixed inset-y-0" />
@@ -18,7 +18,10 @@ export default function DocsLayout({
         <Sidebar isOpen={false} setIsOpen={() => {}} />
       </Suspense>
       <div className="flex-1 ml-72">
-        <main className="h-screen overflow-y-auto px-4 py-8 lg:px-8 lg:py-12">
+        <main
+          className="h-screen overflow-y-auto px-4 py-8 lg:px-8 lg:py-12"
+          suppressHydrationWarning
+        >
           <div className="max-w-4xl mx-auto">
             <Suspense
               fallback={
@@ -28,7 +31,7 @@ export default function DocsLayout({
                 </div>
               }
             >
-              {children}
+              <div suppressHydrationWarning>{children}</div>
             </Suspense>
           </div>
         </main>

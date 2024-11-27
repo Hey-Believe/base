@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { Package, ChevronRight, Menu, X, Search } from 'lucide-react'
@@ -70,39 +70,38 @@ interface SearchResult {
 }
 
 function DocSearch() {
-  const [query, setQuery] = useState('')
   const [results, setResults] = useState<SearchResult[]>([])
   const [isSearching, setIsSearching] = useState(false)
-  const [isMounted, setIsMounted] = useState(false)
+  const inputRef = useRef<HTMLInputElement>(null)
 
-  useEffect(() => {
-    setIsMounted(true)
-    return () => setIsMounted(false)
-  }, [])
+  const handleSearch = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const searchQuery = e.target.value
 
-  const searchDocs = useCallback((searchQuery: string) => {
+    if (!searchQuery || searchQuery.length < 2) {
+      setResults([])
+      return
+    }
+
     try {
-      setQuery(searchQuery)
-      if (searchQuery.length < 2) {
-        setResults([])
-        return
-      }
-
-      const searchResults: SearchResult[] = []
-      navigation.forEach((section) => {
-        section.items.forEach((item) => {
-          if (
-            item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            section.section.toLowerCase().includes(searchQuery.toLowerCase())
-          ) {
-            searchResults.push({
+      const searchResults = navigation.reduce<SearchResult[]>(
+        (acc, section) => {
+          const matches = section.items
+            .filter(
+              (item) =>
+                item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                section.section
+                  .toLowerCase()
+                  .includes(searchQuery.toLowerCase()),
+            )
+            .map((item) => ({
               title: item.title,
               href: item.href,
               section: section.section,
-            })
-          }
-        })
-      })
+            }))
+          return [...acc, ...matches]
+        },
+        [],
+      )
 
       setResults(searchResults)
     } catch (error) {
@@ -111,67 +110,23 @@ function DocSearch() {
     }
   }, [])
 
-  // Keyboard shortcut effect
-  useEffect(() => {
-    if (!isMounted) return
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      try {
-        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-          e.preventDefault()
-          const searchInput = document.querySelector(
-            'input[type="text"]',
-          ) as HTMLInputElement
-          if (searchInput) {
-            searchInput.focus()
-          }
-        }
-      } catch (error) {
-        console.error('Keyboard shortcut error:', error)
-      }
+  const clearSearch = useCallback(() => {
+    if (inputRef.current) {
+      inputRef.current.value = ''
     }
-
-    if (typeof window !== 'undefined') {
-      window.addEventListener('keydown', handleKeyDown)
-      return () => {
-        try {
-          window.removeEventListener('keydown', handleKeyDown)
-        } catch (error) {
-          console.error('Cleanup error:', error)
-        }
-      }
-    }
-  }, [isMounted])
-
-  // Server-side or loading fallback
-  if (!isMounted) {
-    return (
-      <div className="relative group">
-        <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-          <Search className="h-4 w-4 text-zinc-400" />
-        </div>
-        <input
-          type="text"
-          placeholder="Loading search..."
-          className="w-full pl-10 pr-12 py-2.5 text-sm 
-                   bg-zinc-50/50 dark:bg-zinc-900/50 
-                   border border-zinc-200 dark:border-zinc-800 
-                   rounded-xl"
-          disabled
-        />
-      </div>
-    )
-  }
+    setResults([])
+    setIsSearching(false)
+  }, [])
 
   return (
-    <div className="relative group">
+    <div className="relative">
       <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-        <Search className="h-4 w-4 text-zinc-400 group-focus-within:text-zinc-900 dark:group-focus-within:text-zinc-100 transition-colors duration-200" />
+        <Search className="h-4 w-4 text-zinc-400" />
       </div>
       <input
+        ref={inputRef}
         type="text"
-        value={query}
-        onChange={(e) => searchDocs(e.target.value)}
+        onChange={handleSearch}
         onFocus={() => setIsSearching(true)}
         onBlur={() => setTimeout(() => setIsSearching(false), 200)}
         placeholder="Search documentation..."
@@ -185,15 +140,6 @@ function DocSearch() {
                  placeholder:text-zinc-400 dark:placeholder:text-zinc-500
                  transition-all duration-200"
       />
-      <div className="absolute right-3 top-1/2 -translate-y-1/2">
-        <kbd
-          className="hidden sm:inline-flex h-5 items-center gap-1 rounded border 
-                     bg-zinc-50 px-1.5 font-mono text-[10px] font-medium text-zinc-400
-                     border-zinc-200 dark:border-zinc-800 dark:bg-zinc-900"
-        >
-          ⌘ K
-        </kbd>
-      </div>
 
       <AnimatePresence>
         {isSearching && results.length > 0 && (
@@ -208,14 +154,10 @@ function DocSearch() {
           >
             <ul className="max-h-64 overflow-y-auto py-2">
               {results.map((result, index) => (
-                <li key={index}>
+                <li key={`${result.href}-${index}`}>
                   <Link
                     href={result.href}
-                    onClick={() => {
-                      setQuery('')
-                      setResults([])
-                      setIsSearching(false)
-                    }}
+                    onClick={clearSearch}
                     className="flex flex-col px-4 py-2 hover:bg-zinc-50 dark:hover:bg-zinc-800/50"
                   >
                     <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">

@@ -163,13 +163,13 @@ export default function LandingPage() {
       <style jsx global>
         {combinedKeyframes}
       </style>
-      <div className="min-h-screen bg-white text-black flex flex-col items-center justify-between p-0">
+      <div className="min-h-screen bg-white dark:bg-zinc-950 text-black dark:text-white flex flex-col items-center justify-between p-0">
         <div className="flex-grow flex flex-col items-center justify-center w-full px-4 py-12">
           <h1 className="text-[15vw] sm:text-[13vw] md:text-[11vw] lg:text-[9vw] font-bold text-center relative leading-none mb-6">
             <span>He</span>
             <span className="relative inline-block">
-              <span className="absolute left-1/2 top-1/2 w-12 h-12 bg-black/10 rounded-full animate-[inkSplash_var(--animation-duration)_ease-out_forwards]" />
-              <span className="absolute inset-0 animate-[inkRipple_var(--animation-duration)_ease-out_forwards] border-2 border-black/20 rounded-full" />
+              <span className="absolute left-1/2 top-1/2 w-12 h-12 bg-black/10 dark:bg-white/10 rounded-full animate-[inkSplash_var(--animation-duration)_ease-out_forwards]" />
+              <span className="absolute inset-0 animate-[inkRipple_var(--animation-duration)_ease-out_forwards] border-2 border-black/20 dark:border-white/20 rounded-full" />
               <span className="inline-block animate-[inkDrop_var(--animation-duration)_cubic-bezier(0.4,0,0.2,1)_forwards]">
                 y
               </span>
@@ -178,8 +178,8 @@ export default function LandingPage() {
             <span> Bel</span>
 
             <span className="relative inline-block">
-              <span className="absolute left-1/2 top-1/2 w-12 h-12 bg-black/10 rounded-full animate-[inkSplash_var(--animation-duration)_ease-out_forwards]" />
-              <span className="absolute inset-0 animate-[inkRipple_var(--animation-duration)_ease-out_forwards] border-2 border-black/20 rounded-full" />
+              <span className="absolute left-1/2 top-1/2 w-12 h-12 bg-black/10 dark:bg-white/10 rounded-full animate-[inkSplash_var(--animation-duration)_ease-out_forwards]" />
+              <span className="absolute inset-0 animate-[inkRipple_var(--animation-duration)_ease-out_forwards] border-2 border-black/20 dark:border-white/20 rounded-full" />
               <span className="inline-block animate-[inkDrop_var(--animation-duration)_cubic-bezier(0.4,0,0.2,1)_forwards]">
                 i
               </span>
@@ -188,28 +188,31 @@ export default function LandingPage() {
             <span>eve</span>
 
             <span className="relative inline-block">
-              <span className="absolute left-1/2 top-1/2 w-12 h-12 bg-black/10 rounded-full animate-[inkSplash_var(--animation-duration)_ease-out_forwards]" />
-              <span className="absolute inset-0 animate-[inkRipple_var(--animation-duration)_ease-out_forwards] border-2 border-black/20 rounded-full" />
+              <span className="absolute left-1/2 top-1/2 w-12 h-12 bg-black/10 dark:bg-white/10 rounded-full animate-[inkSplash_var(--animation-duration)_ease-out_forwards]" />
+              <span className="absolute inset-0 animate-[inkRipple_var(--animation-duration)_ease-out_forwards] border-2 border-black/20 dark:border-white/20 rounded-full" />
               <span className="inline-block animate-[inkDrop_var(--animation-duration)_cubic-bezier(0.4,0,0.2,1)_forwards]">
                 !
               </span>
             </span>
           </h1>
 
-          <p className="text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.5vw] font-mono max-w-[70%] text-center mb-12">
-            <span className="text-green-600">{'>'}</span> we are a group of
-            mavericks open sourcing the future of decentralized intelligent
-            systems
+          <p className="text-[3vw] sm:text-[2.5vw] md:text-[2vw] lg:text-[1.5vw] font-mono max-w-[70%] text-center mb-12 text-zinc-600 dark:text-zinc-400">
+            <span className="text-green-600 dark:text-green-500">{'>'}</span> we
+            are a group of mavericks open sourcing the future of decentralized
+            intelligent systems
           </p>
 
           <Button
             variant={sidebarOpen ? 'default' : 'outline'}
             size="lg"
             onClick={handleProjectsClick}
-            className={`border ${
-              sidebarOpen ? 'bg-black text-white' : 'border-black text-black'
-            } transition-colors w-full sm:w-auto text-lg sm:text-xl py-4 px-6 
-            rounded-none font-mono hover:scale-[1.02] transform transition-transform`}
+            className={`border transition-colors w-full sm:w-auto text-lg sm:text-xl py-4 px-6 
+            rounded-none font-mono hover:scale-[1.02] transform transition-transform
+            ${
+              sidebarOpen
+                ? 'bg-black dark:bg-white text-white dark:text-black border-black dark:border-white'
+                : 'border-black dark:border-white text-black dark:text-white hover:bg-black/5 dark:hover:bg-white/5'
+            }`}
           >
             {sidebarOpen
               ? 'Thanks for checking our projects!'
@@ -217,7 +220,7 @@ export default function LandingPage() {
           </Button>
 
           <section className="w-full max-w-2xl mx-auto mt-16">
-            <h2 className="text-lg font-bold mb-6 text-center font-mono">
+            <h2 className="text-lg font-bold mb-6 text-center font-mono text-zinc-900 dark:text-zinc-100">
               Contributors
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
@@ -228,9 +231,9 @@ export default function LandingPage() {
                     alt={contributor.name}
                     width={40}
                     height={40}
-                    className="rounded-full hover:scale-110 transition-transform"
+                    className="rounded-full hover:scale-110 transition-transform ring-1 ring-black/10 dark:ring-white/20"
                   />
-                  <span className="text-xs mt-1 font-mono">
+                  <span className="text-xs mt-1 font-mono text-zinc-600 dark:text-zinc-400">
                     {contributor.name}
                   </span>
                 </div>
