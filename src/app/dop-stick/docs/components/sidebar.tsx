@@ -73,49 +73,95 @@ function DocSearch() {
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<SearchResult[]>([])
   const [isSearching, setIsSearching] = useState(false)
-
-  const searchDocs = useCallback((searchQuery: string) => {
-    setQuery(searchQuery)
-    if (searchQuery.length < 2) {
-      setResults([])
-      return
-    }
-
-    const searchResults: SearchResult[] = []
-    navigation.forEach((section) => {
-      section.items.forEach((item) => {
-        if (
-          item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          section.section.toLowerCase().includes(searchQuery.toLowerCase())
-        ) {
-          searchResults.push({
-            title: item.title,
-            href: item.href,
-            section: section.section,
-          })
-        }
-      })
-    })
-
-    setResults(searchResults)
-  }, [])
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
+    setIsMounted(true)
+    return () => setIsMounted(false)
+  }, [])
+
+  const searchDocs = useCallback((searchQuery: string) => {
+    try {
+      setQuery(searchQuery)
+      if (searchQuery.length < 2) {
+        setResults([])
+        return
+      }
+
+      const searchResults: SearchResult[] = []
+      navigation.forEach((section) => {
+        section.items.forEach((item) => {
+          if (
+            item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            section.section.toLowerCase().includes(searchQuery.toLowerCase())
+          ) {
+            searchResults.push({
+              title: item.title,
+              href: item.href,
+              section: section.section,
+            })
+          }
+        })
+      })
+
+      setResults(searchResults)
+    } catch (error) {
+      console.error('Search error:', error)
+      setResults([])
+    }
+  }, [])
+
+  // Keyboard shortcut effect
+  useEffect(() => {
+    if (!isMounted) return
+
     const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault()
-        const searchInput = document.querySelector(
-          'input[type="text"]',
-        ) as HTMLInputElement
-        if (searchInput) {
-          searchInput.focus()
+      try {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+          e.preventDefault()
+          const searchInput = document.querySelector(
+            'input[type="text"]',
+          ) as HTMLInputElement
+          if (searchInput) {
+            searchInput.focus()
+          }
         }
+      } catch (error) {
+        console.error('Keyboard shortcut error:', error)
       }
     }
 
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [])
+    if (typeof window !== 'undefined') {
+      window.addEventListener('keydown', handleKeyDown)
+      return () => {
+        try {
+          window.removeEventListener('keydown', handleKeyDown)
+        } catch (error) {
+          console.error('Cleanup error:', error)
+        }
+      }
+    }
+  }, [isMounted])
+
+  // Server-side or loading fallback
+  if (!isMounted) {
+    return (
+      <div className="relative group">
+        <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+          <Search className="h-4 w-4 text-zinc-400" />
+        </div>
+        <input
+          type="text"
+          placeholder="Loading search..."
+          className="w-full pl-10 pr-12 py-2.5 text-sm 
+                   bg-zinc-50/50 dark:bg-zinc-900/50 
+                   border border-zinc-200 dark:border-zinc-800 
+                   rounded-xl"
+          disabled
+        />
+      </div>
+    )
+  }
 
   return (
     <div className="relative group">
@@ -127,6 +173,7 @@ function DocSearch() {
         value={query}
         onChange={(e) => searchDocs(e.target.value)}
         onFocus={() => setIsSearching(true)}
+        onBlur={() => setTimeout(() => setIsSearching(false), 200)}
         placeholder="Search documentation..."
         className="w-full pl-10 pr-12 py-2.5 text-sm 
                  bg-zinc-50/50 dark:bg-zinc-900/50 
@@ -196,33 +243,56 @@ export function Sidebar({
   setIsOpen: (open: boolean) => void
 }) {
   const pathname = usePathname()
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+    return () => setIsMounted(false)
+  }, [])
 
   const isActiveLink = (href: string) => {
-    if (href.includes('#')) {
-      return window.location.pathname + window.location.hash === href
+    try {
+      if (!isMounted) return false
+
+      // For links with hash, check exact match including the hash
+      if (href.includes('#')) {
+        return typeof window !== 'undefined'
+          ? window.location.pathname + window.location.hash === href
+          : pathname === href.split('#')[0]
+      }
+      // For regular links, check just the pathname
+      return pathname === href
+    } catch (error) {
+      console.error('Active link check error:', error)
+      return false
     }
-    return pathname === href
   }
 
   const scrollToSection = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
   ) => {
-    const [basePath, hash] = href.split('#')
-    if (pathname !== basePath) {
-      return
-    }
+    try {
+      if (!isMounted) return
 
-    if (hash) {
-      e.preventDefault()
-      const element = document.getElementById(hash)
-      if (element) {
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        })
-        window.history.pushState({}, '', href)
+      const [basePath, hash] = href.split('#')
+      if (pathname !== basePath) {
+        return // Allow normal navigation
       }
+
+      if (hash && typeof window !== 'undefined') {
+        e.preventDefault()
+        const element = document.getElementById(hash)
+        if (element) {
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          })
+          window.history.pushState({}, '', href)
+        }
+      }
+    } catch (error) {
+      console.error('Scroll error:', error)
     }
   }
 
