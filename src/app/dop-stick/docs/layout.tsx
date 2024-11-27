@@ -1,8 +1,6 @@
 'use client'
 
-import { useState } from 'react'
-import { Package, Menu } from 'lucide-react'
-import Link from 'next/link'
+import { Suspense } from 'react'
 import { Sidebar } from './components/sidebar'
 
 export default function DocsLayout({
@@ -10,35 +8,25 @@ export default function DocsLayout({
 }: {
   children: React.ReactNode
 }) {
-  const [isOpen, setIsOpen] = useState(false)
-
   return (
-    <div className="min-h-screen bg-white dark:bg-black">
-      {/* Mobile header */}
-      <header
-        className="lg:hidden fixed top-0 left-0 right-0 z-40 
-                        bg-white/80 dark:bg-black/80 backdrop-blur-xl
-                        border-b border-zinc-200 dark:border-zinc-800"
+    <div className="flex min-h-screen">
+      <Suspense
+        fallback={<div className="w-72 bg-zinc-100 dark:bg-zinc-900" />}
       >
-        <div className="flex items-center justify-between p-4">
-          <Link href="/dop-stick" className="flex items-center gap-2">
-            <Package className="h-6 w-6" />
-            <span className="font-semibold text-lg">DopStick</span>
-          </Link>
-          <button
-            onClick={() => setIsOpen(true)}
-            className="p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-md"
-          >
-            <Menu className="h-5 w-5" />
-          </button>
-        </div>
-      </header>
-
-      <div className="flex h-screen lg:h-screen pt-[73px] lg:pt-0">
-        <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
-
-        <div className="flex-1 min-w-0 h-full overflow-y-auto">{children}</div>
-      </div>
+        <Sidebar isOpen={false} setIsOpen={() => {}} />
+      </Suspense>
+      <main className="flex-1 px-4 py-8 lg:px-8 lg:py-12">
+        <Suspense
+          fallback={
+            <div className="max-w-4xl mx-auto animate-pulse space-y-4">
+              <div className="h-8 w-64 bg-zinc-200 dark:bg-zinc-800 rounded"></div>
+              <div className="h-4 w-96 bg-zinc-200 dark:bg-zinc-800 rounded"></div>
+            </div>
+          }
+        >
+          {children}
+        </Suspense>
+      </main>
     </div>
   )
 }
