@@ -308,12 +308,11 @@ export function Sidebar({
       <aside
         className={cn(
           'fixed top-0 left-0 z-50 h-screen w-72',
-          'transform transition-transform duration-300',
+          'flex flex-col',
           'bg-white/80 dark:bg-black/80 backdrop-blur-xl',
           'border-r border-zinc-200 dark:border-zinc-800',
-          'flex flex-col',
-          'lg:translate-x-0 lg:relative',
-          isOpen ? 'translate-x-0' : '-translate-x-full',
+          'lg:translate-x-0',
+          isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
         )}
       >
         <div className="flex-none p-4 border-b border-zinc-200 dark:border-zinc-800">
@@ -327,7 +326,7 @@ export function Sidebar({
           <DocSearch />
         </div>
 
-        <nav className="flex-1 overflow-y-auto">
+        <nav className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-zinc-200 dark:scrollbar-thumb-zinc-800 scrollbar-track-transparent">
           <motion.div
             className="p-4 space-y-8"
             initial={{ opacity: 0, x: -20 }}
