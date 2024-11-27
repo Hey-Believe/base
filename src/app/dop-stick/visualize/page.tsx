@@ -23,28 +23,24 @@ const visualizationOptions = [
     description:
       'Explore your diamond contract structure with detailed insights',
     icon: <Package className="w-6 h-6" />,
-    gradient: 'from-zinc-500 to-zinc-900',
   },
   {
     id: 'upgrade-report',
     title: 'Upgrade Report',
     description: 'Track and analyze diamond upgrade operations',
     icon: <Upload className="w-6 h-6" />,
-    gradient: 'from-zinc-500 to-zinc-900',
   },
   {
     id: 'deployment-report',
     title: 'Deployment Report',
     description: 'Review deployment configurations and statistics',
     icon: <FileJson className="w-6 h-6" />,
-    gradient: 'from-zinc-500 to-zinc-900',
   },
   {
     id: 'others',
     title: 'Other Visualizations',
     description: 'Discover additional visualization options',
     icon: <AlertCircle className="w-6 h-6" />,
-    gradient: 'from-zinc-500 to-zinc-900',
   },
 ]
 
@@ -134,16 +130,16 @@ export default function VisualizePage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white font-mono transition-colors duration-300">
       <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="border-b border-gray-100"
+        className="border-b border-black/10 dark:border-white/10"
       >
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 h-16 flex items-center">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center">
           <Link
             href="/dop-stick"
-            className="group flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
+            className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
             <span>Back</span>
@@ -151,18 +147,17 @@ export default function VisualizePage() {
         </div>
       </motion.header>
 
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="max-w-2xl mx-auto mb-10 sm:mb-12"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 sm:mb-4 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-3 sm:mb-4">
             Visualize Your Diamond
           </h1>
-          <p className="text-center text-gray-500 text-base sm:text-lg px-4">
-            Choose a visualization type and upload your JSON file to begin the
-            analysis
+          <p className="text-center text-muted-foreground text-base sm:text-lg">
+            Choose a visualization type and upload your JSON file to begin
           </p>
         </motion.div>
 
@@ -173,9 +168,6 @@ export default function VisualizePage() {
             animate={{ opacity: 1, x: 0 }}
             className="flex-1 space-y-3 sm:space-y-4"
           >
-            <h2 className="text-lg sm:text-xl font-semibold mb-4">
-              Select Visualization Type
-            </h2>
             {visualizationOptions.map((option) => (
               <motion.div
                 key={option.id}
@@ -183,25 +175,22 @@ export default function VisualizePage() {
                 whileTap={{ scale: 0.99 }}
               >
                 <Card
-                  className={`p-4 sm:p-6 cursor-pointer transition-all border-2
+                  className={`p-4 sm:p-6 cursor-pointer transition-all border
                     ${
                       selectedOption === option.id
-                        ? 'ring-1 ring-black border-black bg-gray-50'
-                        : 'hover:border-gray-300 border-transparent'
+                        ? 'border-black dark:border-white bg-black/5 dark:bg-white/5'
+                        : 'border-black/5 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10'
                     }
-                    ${isHovering === option.id && 'bg-gray-50'}
                   `}
                   onClick={() => setSelectedOption(option.id)}
-                  onMouseEnter={() => setIsHovering(option.id)}
-                  onMouseLeave={() => setIsHovering(null)}
                 >
-                  <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="flex items-start gap-4">
                     <div
-                      className={`p-2 sm:p-3 rounded-lg transition-colors
+                      className={`p-3 rounded-lg transition-colors
                       ${
                         selectedOption === option.id
-                          ? 'bg-black text-white'
-                          : 'bg-gray-100 text-gray-500'
+                          ? 'bg-black dark:bg-white text-white dark:text-black'
+                          : 'bg-black/5 dark:bg-white/5 text-muted-foreground'
                       }
                     `}
                     >
@@ -216,13 +205,12 @@ export default function VisualizePage() {
                           <motion.div
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
-                            className="text-black flex-shrink-0"
                           >
                             <Check className="w-5 h-5" />
                           </motion.div>
                         )}
                       </div>
-                      <p className="text-sm text-gray-500 line-clamp-2">
+                      <p className="text-sm text-muted-foreground line-clamp-2">
                         {option.description}
                       </p>
                     </div>
@@ -238,9 +226,6 @@ export default function VisualizePage() {
             animate={{ opacity: 1, x: 0 }}
             className="flex-1"
           >
-            <h2 className="text-lg sm:text-xl font-semibold mb-4">
-              Upload JSON File
-            </h2>
             <AnimatePresence>
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -252,13 +237,17 @@ export default function VisualizePage() {
                 className={`h-full ${!selectedOption && 'pointer-events-none'}`}
               >
                 <div
-                  className={`border-2 border-dashed rounded-lg p-6 sm:p-8 lg:p-12 text-center transition-all
+                  className={`border-2 border-dashed rounded-lg p-8 lg:p-12 text-center transition-all
                     ${
                       isDragging
-                        ? 'border-black bg-gray-50 scale-[1.02]'
-                        : 'border-gray-200'
+                        ? 'border-black dark:border-white bg-black/5 dark:bg-white/5'
+                        : 'border-black/10 dark:border-white/10'
                     }
-                    ${!isDragging && selectedOption && 'hover:border-gray-300'}
+                    ${
+                      !isDragging &&
+                      selectedOption &&
+                      'hover:border-black/20 dark:hover:border-white/20'
+                    }
                   `}
                   onDragOver={handleDragOver}
                   onDragLeave={handleDragLeave}
@@ -272,15 +261,15 @@ export default function VisualizePage() {
                       }}
                       transition={{ type: 'spring' }}
                     >
-                      <FileJson className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 text-gray-400" />
+                      <FileJson className="w-16 h-16 mx-auto mb-6 text-muted-foreground" />
                     </motion.div>
-                    <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">
+                    <h3 className="text-xl font-semibold mb-3">
                       Upload your JSON file
                     </h3>
                     {error && (
                       <div className="text-red-500 text-sm mb-4">{error}</div>
                     )}
-                    <p className="text-sm text-gray-500 mb-6 sm:mb-8">
+                    <p className="text-sm text-muted-foreground mb-8">
                       {selectedOption
                         ? 'Drag and drop your file here, or click to browse'
                         : 'Please select a visualization type first'}
@@ -296,10 +285,11 @@ export default function VisualizePage() {
                       }}
                       id="file-upload"
                     />
-                    <div className="flex gap-4">
+                    <div className="flex gap-4 justify-center">
                       <Button
                         variant="outline"
-                        className="hover:bg-black hover:text-white transition-colors"
+                        className="border-black dark:border-white hover:bg-black hover:text-white 
+                                 dark:hover:bg-white dark:hover:text-black transition-colors"
                         onClick={() =>
                           document.getElementById('file-upload')?.click()
                         }
@@ -309,7 +299,8 @@ export default function VisualizePage() {
                       </Button>
                       {jsonData && selectedOption === 'diamond-info' && (
                         <Button
-                          className="bg-black text-white hover:bg-gray-900"
+                          className="bg-black text-white dark:bg-white dark:text-black 
+                                   hover:bg-black/90 dark:hover:bg-white/90"
                           onClick={handleProceed}
                         >
                           Proceed to Visualization

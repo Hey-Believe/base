@@ -1,32 +1,31 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import { cn } from '@/lib/utils'
 
 interface BlinkingCursorProps {
-  text: string
+  className?: string
 }
 
-export function BlinkingCursor({ text }: BlinkingCursorProps) {
-  const [showCursor, setShowCursor] = useState(true)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setShowCursor((prev) => !prev)
-    }, 530) // Blink every 530ms for a natural feel
-
-    return () => clearInterval(interval)
-  }, [])
-
+export function BlinkingCursor({ className }: { className?: string }) {
   return (
-    <span>
-      {text}
-      <span
-        className={`${
-          showCursor ? 'opacity-100' : 'opacity-0'
-        } transition-opacity duration-100`}
-      >
-        |
-      </span>
-    </span>
+    <div
+      className={cn('w-[3px] bg-current', className)}
+      style={{
+        animation: 'blink 1s steps(1) infinite',
+      }}
+    >
+      <style jsx>{`
+        @keyframes blink {
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+        }
+      `}</style>
+    </div>
   )
 }

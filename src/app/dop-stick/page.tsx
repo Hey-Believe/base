@@ -7,9 +7,67 @@ import { BackgroundAnimation } from '@/components/dop-stick/home-background-anim
 import { motion } from 'framer-motion'
 import { ScrambleText } from '@/components/dop-stick/scramble-text'
 import { BlinkingCursor } from '@/components/dop-stick/blinking-cursor'
-import { Package } from 'lucide-react'
+import { Package, Copy } from 'lucide-react'
+import { useState } from 'react'
+
+type PackageManager = 'pnpm' | 'npm' | 'yarn'
+
+function CodeBlock({
+  command,
+  packageManager,
+}: {
+  command: string
+  packageManager: PackageManager
+}) {
+  const [copied, setCopied] = useState(false)
+
+  const getFormattedCommand = () => {
+    return command.replace('pnpm', packageManager)
+  }
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(getFormattedCommand())
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy:', err)
+    }
+  }
+
+  return (
+    <div className="relative group">
+      <code
+        className="block w-full bg-black/5 dark:bg-white/5 px-4 py-3 rounded-lg font-mono 
+                   border border-black/5 dark:border-white/5 
+                   transition-colors duration-200 hover:border-black/10 
+                   dark:hover:border-white/10 flex justify-between items-center"
+      >
+        <span>{getFormattedCommand()}</span>
+        <button
+          onClick={copyToClipboard}
+          className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 
+                     hover:text-foreground text-muted-foreground relative ml-4"
+          aria-label="Copy to clipboard"
+        >
+          <Copy className="h-4 w-4" />
+          {copied && (
+            <span
+              className="absolute -top-8 -left-2 bg-black dark:bg-white text-white dark:text-black 
+                           text-xs py-1 px-2 rounded opacity-0 transition-opacity duration-200 opacity-100"
+            >
+              Copied!
+            </span>
+          )}
+        </button>
+      </code>
+    </div>
+  )
+}
 
 export default function Page() {
+  const [packageManager, setPackageManager] = useState<PackageManager>('pnpm')
+
   return (
     <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white font-mono transition-colors duration-300 flex items-center justify-center relative">
       <BackgroundAnimation />
@@ -97,75 +155,82 @@ export default function Page() {
                 transition={{ delay: 0.4, duration: 0.5 }}
               >
                 <p className="text-muted-foreground leading-relaxed">
-                  Upgradable smart contracts should be easy to work with, easy
-                  to deploy, upgrade and introspect; hence dop-stick
+                  Upgradable smart contracts should be simple to work with, easy
+                  to deploy, seamless to upgrade, and clear to introspect;
+                  hence, <span className="font-bold">Dop-Stick</span>.
                 </p>
+
+                <div className="flex items-center gap-2 text-sm">
+                  <Package className="h-4 w-4 text-muted-foreground" />
+                  <select
+                    value={packageManager}
+                    onChange={(e) =>
+                      setPackageManager(e.target.value as PackageManager)
+                    }
+                    className="bg-transparent border-none text-muted-foreground hover:text-foreground 
+                             transition-colors duration-200 cursor-pointer focus:outline-none"
+                  >
+                    <option value="pnpm">pnpm</option>
+                    <option value="npm">npm</option>
+                    <option value="yarn">yarn</option>
+                  </select>
+                </div>
 
                 <div className="space-y-4">
                   <div className="space-y-2">
                     <p className="text-xs uppercase tracking-wider text-muted-foreground">
                       Installation
                     </p>
-                    <code
-                      className="block bg-black/5 dark:bg-white/5 px-4 py-3 rounded-lg font-mono 
-                                   border border-black/5 dark:border-white/5 
-                                   transition-colors duration-200 hover:border-black/10 
-                                   dark:hover:border-white/10"
-                    >
-                      pnpm install dop-stick
-                    </code>
+                    <CodeBlock
+                      command="pnpm install dop-stick"
+                      packageManager={packageManager}
+                    />
                   </div>
 
                   <div className="space-y-2">
                     <p className="text-xs uppercase tracking-wider text-muted-foreground">
                       New diamond deployment
                     </p>
-                    <code
-                      className="block bg-black/5 dark:bg-white/5 px-4 py-3 rounded-lg font-mono 
-                                   border border-black/5 dark:border-white/5 
-                                   transition-colors duration-200 hover:border-black/10 
-                                   dark:hover:border-white/10"
-                    >
-                      pnpm dop-stick mine
-                    </code>
+                    <CodeBlock
+                      command="pnpm dop-stick mine"
+                      packageManager={packageManager}
+                    />
                   </div>
 
                   <div className="space-y-2">
                     <p className="text-xs uppercase tracking-wider text-muted-foreground">
                       Diamond upgrade
                     </p>
-                    <code
-                      className="block bg-black/5 dark:bg-white/5 px-4 py-3 rounded-lg font-mono 
-                                   border border-black/5 dark:border-white/5 
-                                   transition-colors duration-200 hover:border-black/10 
-                                   dark:hover:border-white/10"
-                    >
-                      pnpm dop-stick upgrade
-                    </code>
+                    <CodeBlock
+                      command="pnpm dop-stick upgrade"
+                      packageManager={packageManager}
+                    />
                   </div>
 
                   <div className="space-y-2">
                     <p className="text-xs uppercase tracking-wider text-muted-foreground">
                       Diamond introspection
                     </p>
-                    <code
-                      className="block bg-black/5 dark:bg-white/5 px-4 py-3 rounded-lg font-mono 
-                                   border border-black/5 dark:border-white/5 
-                                   transition-colors duration-200 hover:border-black/10 
-                                   dark:hover:border-white/10"
-                    >
-                      pnpm dop-stick info --docs
-                    </code>
+                    <CodeBlock
+                      command="pnpm dop-stick info --docs"
+                      packageManager={packageManager}
+                    />
                   </div>
                 </div>
 
-                <Link
-                  href="/docs"
-                  className="inline-block text-sm hover:underline mt-4 text-muted-foreground 
-                           hover:text-foreground transition-colors duration-200"
-                >
-                  See full documentation →
-                </Link>
+                <div className="flex items-center justify-between">
+                  <Link
+                    href="/docs"
+                    className="inline-block text-sm hover:underline text-muted-foreground 
+                             hover:text-foreground transition-colors duration-200"
+                  >
+                    See full documentation →
+                  </Link>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    Happy Mining! 💎
+                    <BlinkingCursor className="h-4" />
+                  </div>
+                </div>
               </motion.div>
             </div>
           </div>
