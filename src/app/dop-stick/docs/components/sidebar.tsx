@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { Package, ChevronRight, Menu, X, Search } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { motion } from 'framer-motion'
 
 const navigation = [
   {
@@ -38,11 +39,26 @@ const navigation = [
     ],
   },
   {
-    section: 'Advanced',
+    section: 'Configuration',
     items: [
-      { title: 'Custom Networks', href: '/dop-stick/docs/advanced/networks' },
-      { title: 'Caching', href: '/dop-stick/docs/advanced/caching' },
-      { title: 'Compilation', href: '/dop-stick/docs/advanced/compilation' },
+      {
+        title: 'Compiler Settings',
+        href: '/dop-stick/docs/configuration#compiler',
+      },
+      { title: 'Mode & Paths', href: '/dop-stick/docs/configuration#paths' },
+      {
+        title: 'Security Settings',
+        href: '/dop-stick/docs/configuration#security',
+      },
+      { title: 'Gas & Performance', href: '/dop-stick/docs/configuration#gas' },
+      {
+        title: 'Retry & Error Handling',
+        href: '/dop-stick/docs/configuration#retry',
+      },
+      {
+        title: 'Contract Verification',
+        href: '/dop-stick/docs/configuration#verification',
+      },
     ],
   },
 ]
@@ -88,6 +104,28 @@ export function Sidebar({
 }) {
   const pathname = usePathname()
 
+  const scrollToSection = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    const [basePath, hash] = href.split('#')
+    if (pathname !== basePath) {
+      return
+    }
+
+    if (hash) {
+      e.preventDefault()
+      const element = document.getElementById(hash)
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        })
+        window.history.pushState({}, '', href)
+      }
+    }
+  }
+
   return (
     <>
       {isOpen && (
@@ -120,20 +158,40 @@ export function Sidebar({
         </div>
 
         <nav className="flex-1 overflow-y-auto">
-          <div className="p-4 space-y-8">
+          <motion.div
+            className="p-4 space-y-8"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             {navigation.map((section, i) => (
-              <div key={i} className="space-y-2">
+              <motion.div
+                key={i}
+                className="space-y-2"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
                 <h2 className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider px-3">
                   {section.section}
                 </h2>
                 <ul className="space-y-1">
                   {section.items.map((item, j) => (
-                    <li key={j}>
+                    <motion.li
+                      key={j}
+                      whileHover={{ x: 4 }}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 400,
+                        damping: 17,
+                      }}
+                    >
                       <Link
                         href={item.href}
+                        onClick={(e) => scrollToSection(e, item.href)}
                         className={cn(
                           'group flex items-center gap-2 px-3 py-2 text-sm rounded-lg transition-all duration-200',
-                          pathname === item.href
+                          pathname === item.href.split('#')[0]
                             ? 'bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100'
                             : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100',
                         )}
@@ -147,7 +205,7 @@ export function Sidebar({
                           <ChevronRight
                             className={cn(
                               'h-3 w-3 transition-transform duration-200',
-                              pathname === item.href
+                              pathname === item.href.split('#')[0]
                                 ? 'text-zinc-900 dark:text-zinc-100 transform rotate-90'
                                 : 'text-zinc-400 dark:text-zinc-600 group-hover:text-zinc-900 dark:group-hover:text-zinc-100',
                             )}
@@ -155,12 +213,12 @@ export function Sidebar({
                         </span>
                         {item.title}
                       </Link>
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </nav>
 
         <div className="flex-none p-4 border-t border-zinc-200 dark:border-zinc-800">
