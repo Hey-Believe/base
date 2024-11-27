@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, BookOpen, Terminal } from 'lucide-react'
+import { ArrowRight, BookOpen, Terminal, Settings } from 'lucide-react'
 
 const container = {
   hidden: { opacity: 0 },
@@ -35,7 +35,7 @@ export default function DocsPage() {
               Documentation
             </h1>
             <p className="text-xl text-zinc-600 dark:text-zinc-400">
-              Learn how to use DopStick to manage and deploy your diamond
+              Learn how to use Dop-Stick to manage and deploy your diamond
               contracts efficiently.
             </p>
           </motion.section>
@@ -46,15 +46,15 @@ export default function DocsPage() {
             <div className="grid gap-4 sm:grid-cols-2">
               {[
                 {
-                  title: 'Getting Started',
-                  description: 'Get up and running with DopStick in minutes',
+                  title: 'Installation',
+                  description: 'Get up and running with Dop-Stick in minutes',
                   href: '/dop-stick/docs/installation',
                   icon: BookOpen,
                 },
                 {
                   title: 'Commands',
                   description: 'Explore the core commands and their usage',
-                  href: '/dop-stick/docs/commands/mine',
+                  href: '/dop-stick/docs/commands#mine',
                   icon: Terminal,
                 },
               ].map((card, i) => (
@@ -91,19 +91,22 @@ export default function DocsPage() {
                 {
                   title: 'Basic Setup',
                   description:
-                    'Learn how to configure DopStick for your project',
-                  href: '/dop-stick/docs/setup',
+                    'Learn how to configure Dop-Stick for your project',
+                  href: '/dop-stick/docs/installation?section=setup',
+                  icon: Settings,
                 },
                 {
                   title: 'Configuration',
                   description:
                     'Explore configuration options and customization',
-                  href: '/dop-stick/docs/configuration',
+                  href: '/dop-stick/docs/configuration#compiler',
+                  icon: Settings,
                 },
                 {
-                  title: 'Advanced Usage',
-                  description: 'Dive into advanced features and optimizations',
-                  href: '/dop-stick/docs/advanced/networks',
+                  title: 'Command Reference',
+                  description: 'Complete guide to all Dop-Stick commands',
+                  href: '/dop-stick/docs/commands#mine',
+                  icon: Terminal,
                 },
               ].map((item, i) => (
                 <Link
@@ -115,11 +118,14 @@ export default function DocsPage() {
                            hover:bg-zinc-50 dark:hover:bg-zinc-800/50
                            transition-all duration-200"
                 >
-                  <div>
-                    <h3 className="font-medium">{item.title}</h3>
-                    <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-                      {item.description}
-                    </p>
+                  <div className="flex items-center gap-3">
+                    <item.icon className="h-5 w-5 text-zinc-500" />
+                    <div>
+                      <h3 className="font-medium">{item.title}</h3>
+                      <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
                   <ArrowRight
                     className="h-4 w-4 text-zinc-400 group-hover:text-zinc-900 

@@ -1,21 +1,21 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { Package, ChevronRight, Menu, X, Search } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const navigation = [
-  {
-    section: 'Introduction',
-    items: [
-      { title: 'What is DopStick?', href: '/dop-stick/docs/introduction' },
-      { title: 'Key Features', href: '/dop-stick/docs/features' },
-      { title: 'Quick Start', href: '/dop-stick/docs/quickstart' },
-    ],
-  },
+  // {
+  //   section: 'Introduction',
+  //   items: [
+  //     { title: 'What is DopStick?', href: '/dop-stick/docs/introduction' },
+  //     { title: 'Key Features', href: '/dop-stick/docs/features' },
+  //     { title: 'Quick Start', href: '/dop-stick/docs/quickstart' },
+  //   ],
+  // },
   {
     section: 'Core Concepts',
     items: [
@@ -63,7 +63,60 @@ const navigation = [
   },
 ]
 
+interface SearchResult {
+  title: string
+  href: string
+  section: string
+}
+
 function DocSearch() {
+  const [query, setQuery] = useState('')
+  const [results, setResults] = useState<SearchResult[]>([])
+  const [isSearching, setIsSearching] = useState(false)
+
+  const searchDocs = useCallback((searchQuery: string) => {
+    setQuery(searchQuery)
+    if (searchQuery.length < 2) {
+      setResults([])
+      return
+    }
+
+    const searchResults: SearchResult[] = []
+    navigation.forEach((section) => {
+      section.items.forEach((item) => {
+        if (
+          item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          section.section.toLowerCase().includes(searchQuery.toLowerCase())
+        ) {
+          searchResults.push({
+            title: item.title,
+            href: item.href,
+            section: section.section,
+          })
+        }
+      })
+    })
+
+    setResults(searchResults)
+  }, [])
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        const searchInput = document.querySelector(
+          'input[type="text"]',
+        ) as HTMLInputElement
+        if (searchInput) {
+          searchInput.focus()
+        }
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
+
   return (
     <div className="relative group">
       <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
@@ -71,6 +124,9 @@ function DocSearch() {
       </div>
       <input
         type="text"
+        value={query}
+        onChange={(e) => searchDocs(e.target.value)}
+        onFocus={() => setIsSearching(true)}
         placeholder="Search documentation..."
         className="w-full pl-10 pr-12 py-2.5 text-sm 
                  bg-zinc-50/50 dark:bg-zinc-900/50 
@@ -91,6 +147,43 @@ function DocSearch() {
           ⌘ K
         </kbd>
       </div>
+
+      <AnimatePresence>
+        {isSearching && results.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="absolute z-50 left-0 right-0 mt-2 overflow-hidden
+                      bg-white dark:bg-zinc-900 
+                      border border-zinc-200 dark:border-zinc-800 
+                      rounded-lg shadow-lg"
+          >
+            <ul className="max-h-64 overflow-y-auto py-2">
+              {results.map((result, index) => (
+                <li key={index}>
+                  <Link
+                    href={result.href}
+                    onClick={() => {
+                      setQuery('')
+                      setResults([])
+                      setIsSearching(false)
+                    }}
+                    className="flex flex-col px-4 py-2 hover:bg-zinc-50 dark:hover:bg-zinc-800/50"
+                  >
+                    <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                      {result.title}
+                    </span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                      {result.section}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
@@ -103,6 +196,13 @@ export function Sidebar({
   setIsOpen: (open: boolean) => void
 }) {
   const pathname = usePathname()
+
+  const isActiveLink = (href: string) => {
+    if (href.includes('#')) {
+      return window.location.pathname + window.location.hash === href
+    }
+    return pathname === href
+  }
 
   const scrollToSection = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -191,7 +291,7 @@ export function Sidebar({
                         onClick={(e) => scrollToSection(e, item.href)}
                         className={cn(
                           'group flex items-center gap-2 px-3 py-2 text-sm rounded-lg transition-all duration-200',
-                          pathname === item.href.split('#')[0]
+                          isActiveLink(item.href)
                             ? 'bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100'
                             : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100',
                         )}
@@ -205,7 +305,7 @@ export function Sidebar({
                           <ChevronRight
                             className={cn(
                               'h-3 w-3 transition-transform duration-200',
-                              pathname === item.href.split('#')[0]
+                              isActiveLink(item.href)
                                 ? 'text-zinc-900 dark:text-zinc-100 transform rotate-90'
                                 : 'text-zinc-400 dark:text-zinc-600 group-hover:text-zinc-900 dark:group-hover:text-zinc-100',
                             )}

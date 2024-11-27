@@ -22,6 +22,13 @@ function CodeBlock({
   const [copied, setCopied] = useState(false)
 
   const getFormattedCommand = () => {
+    if (command.includes('install')) {
+      // For installation commands, use 'add' for yarn
+      return packageManager === 'yarn'
+        ? command.replace('install', 'add').replace('pnpm', packageManager)
+        : command.replace('pnpm', packageManager)
+    }
+    // For other commands, just replace the package manager
     return command.replace('pnpm', packageManager)
   }
 
@@ -220,7 +227,7 @@ export default function Page() {
 
                 <div className="flex items-center justify-between">
                   <Link
-                    href="/docs"
+                    href="/dop-stick/docs"
                     className="inline-block text-sm hover:underline text-muted-foreground 
                              hover:text-foreground transition-colors duration-200"
                   >
