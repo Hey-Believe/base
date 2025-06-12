@@ -254,69 +254,110 @@ export default function VisualizePage() {
                   onDrop={handleDrop}
                 >
                   <div className="max-w-sm mx-auto">
-                    <motion.div
-                      animate={{
-                        scale: isDragging ? 1.1 : 1,
-                        rotate: isDragging ? 5 : 0,
-                      }}
-                      transition={{ type: 'spring' }}
-                    >
-                      <FileJson className="w-16 h-16 mx-auto mb-6 text-muted-foreground" />
-                    </motion.div>
-                    <h3 className="text-xl font-semibold mb-3">
-                      Upload your JSON file
-                    </h3>
-                    {error && (
-                      <div className="text-red-500 text-sm mb-4">{error}</div>
-                    )}
-                    <p className="text-sm text-muted-foreground mb-8">
-                      {selectedOption
-                        ? 'Drag and drop your file here, or click to browse'
-                        : 'Please select a visualization type first'}
-                    </p>
-                    <p className="text-sm text-muted-foreground mb-8">
-                      To learn how to generate the visualization JSON, please
-                      visit the{' '}
-                      <Link
-                        href="/dop-stick/docs"
-                        className="underline hover:text-foreground transition-colors"
-                      >
-                        documentation
-                      </Link>
-                    </p>
-                    <input
-                      type="file"
-                      accept="application/json"
-                      className="hidden"
-                      onChange={(e) => {
-                        if (e.target.files?.[0]) {
-                          handleFileUpload(e.target.files[0])
-                        }
-                      }}
-                      id="file-upload"
-                    />
-                    <div className="flex gap-4 justify-center">
-                      <Button
-                        variant="outline"
-                        className="border-black dark:border-white hover:bg-black hover:text-white 
-                                 dark:hover:bg-white dark:hover:text-black transition-colors"
-                        onClick={() =>
-                          document.getElementById('file-upload')?.click()
-                        }
-                        disabled={!selectedOption}
-                      >
-                        Select File
-                      </Button>
-                      {jsonData && selectedOption === 'diamond-info' && (
-                        <Button
-                          className="bg-black text-white dark:bg-white dark:text-black 
-                                   hover:bg-black/90 dark:hover:bg-white/90"
-                          onClick={handleProceed}
+                    {selectedOption === 'diamond-info' ? (
+                      <>
+                        <motion.div
+                          animate={{
+                            scale: isDragging ? 1.1 : 1,
+                            rotate: isDragging ? 5 : 0,
+                          }}
+                          transition={{ type: 'spring' }}
                         >
-                          Proceed to Visualization
-                        </Button>
-                      )}
-                    </div>
+                          <FileJson className="w-16 h-16 mx-auto mb-6 text-muted-foreground" />
+                        </motion.div>
+                        <h3 className="text-xl font-semibold mb-3">
+                          Upload your JSON file
+                        </h3>
+                        {error && (
+                          <div className="text-red-500 text-sm mb-4">
+                            {error}
+                          </div>
+                        )}
+                        <p className="text-sm text-muted-foreground mb-8">
+                          {selectedOption
+                            ? 'Drag and drop your file here, or click to browse'
+                            : 'Please select a visualization type first'}
+                        </p>
+                        <p className="text-sm text-muted-foreground mb-8">
+                          To learn how to generate the visualization JSON,
+                          please visit the{' '}
+                          <Link
+                            href="/dop-stick/docs"
+                            className="underline hover:text-foreground transition-colors"
+                          >
+                            documentation
+                          </Link>
+                        </p>
+                        <input
+                          type="file"
+                          accept="application/json"
+                          className="hidden"
+                          onChange={(e) => {
+                            if (e.target.files?.[0]) {
+                              handleFileUpload(e.target.files[0])
+                            }
+                          }}
+                          id="file-upload"
+                        />
+                        <div className="flex gap-4 justify-center">
+                          <Button
+                            variant="outline"
+                            className="border-black dark:border-white hover:bg-black hover:text-white 
+                                     dark:hover:bg-white dark:hover:text-black transition-colors"
+                            onClick={() =>
+                              document.getElementById('file-upload')?.click()
+                            }
+                            disabled={!selectedOption}
+                          >
+                            Select File
+                          </Button>
+                          {jsonData && selectedOption === 'diamond-info' && (
+                            <Button
+                              className="bg-black text-white dark:bg-white dark:text-black 
+                                       hover:bg-black/90 dark:hover:bg-white/90"
+                              onClick={handleProceed}
+                            >
+                              Proceed to Visualization
+                            </Button>
+                          )}
+                        </div>
+                      </>
+                    ) : selectedOption ? (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ type: 'spring', duration: 0.5 }}
+                        className="py-12"
+                      >
+                        <motion.div
+                          animate={{
+                            rotate: [0, 10, -10, 0],
+                            scale: [1, 1.1, 1],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            repeatType: 'reverse',
+                          }}
+                          className="mb-6"
+                        >
+                          <AlertCircle className="w-16 h-16 mx-auto text-muted-foreground" />
+                        </motion.div>
+                        <h3 className="text-2xl font-semibold mb-3">
+                          Coming Soon
+                        </h3>
+                        <p className="text-muted-foreground">
+                          We're working on bringing you this visualization
+                          feature. Stay tuned for updates!
+                        </p>
+                      </motion.div>
+                    ) : (
+                      <div className="py-12">
+                        <p className="text-muted-foreground">
+                          Please select a visualization type to continue
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
               </motion.div>
