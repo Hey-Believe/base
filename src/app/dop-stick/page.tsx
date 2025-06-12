@@ -150,16 +150,16 @@ export default function Page() {
                   className="flex gap-4"
                 >
                   <Link
-                    href="/dop-stick/explore"
-                    className="inline-block border border-black dark:border-white px-6 py-2 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
-                  >
-                    <ScrambleText text="EXPLORE" scrambleOnHover={true} />
-                  </Link>
-                  <Link
                     href="/dop-stick/visualize"
                     className="inline-block border border-black dark:border-white px-6 py-2 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
                   >
                     <ScrambleText text="VISUALIZE" scrambleOnHover={true} />
+                  </Link>
+                  <Link
+                    href="/dop-stick/docs"
+                    className="inline-block border border-black dark:border-white px-6 py-2 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
+                  >
+                    <ScrambleText text="DOCUMENTATION" scrambleOnHover={true} />
                   </Link>
                 </motion.div>
 
