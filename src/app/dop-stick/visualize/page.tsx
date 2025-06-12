@@ -274,6 +274,16 @@ export default function VisualizePage() {
                         ? 'Drag and drop your file here, or click to browse'
                         : 'Please select a visualization type first'}
                     </p>
+                    <p className="text-sm text-muted-foreground mb-8">
+                      To learn how to generate the visualization JSON, please
+                      visit the{' '}
+                      <Link
+                        href="/dop-stick/docs"
+                        className="underline hover:text-foreground transition-colors"
+                      >
+                        documentation
+                      </Link>
+                    </p>
                     <input
                       type="file"
                       accept="application/json"
